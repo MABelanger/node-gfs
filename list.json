@@ -1,0 +1,317 @@
+[
+  {
+    "mcta": "Aile de poulet",
+    "gfs": {
+      "id": "1229471",
+      "format": "880G",
+      "description": "CONFIT OIGN CARAMELISE",
+      "marque": "BRICKSTONE"
+    }
+  },
+  {
+    "mcta": "Bacon bite",
+    "gfs": {
+      "id": "1162738",
+      "format": "2.84L",
+      "description": "TOMATE PATE",
+      "marque": "KITCH ESSENTIAL"
+    }
+  },
+  {
+    "mcta": "Calabrese",
+    "gfs": {
+      "id": "1082483",
+      "format": "575ML",
+      "description": "KETCHUP BOUTEILLE RENVERSEE (PLAST)",
+      "marque": "HEINZ"
+    }
+  },
+  {
+    "mcta": "Demi glace",
+    "gfs": {
+      "id": "4219378",
+      "format": "3.78L",
+      "description": "SAUCE SALSA DOUCE",
+      "marque": "MEXICASA"
+    }
+  },
+  {
+    "mcta": "Eau eska 1.5 litre",
+    "gfs": {
+      "id": "0223778",
+      "format": "3.7L",
+      "description": "SAUCE AIGRE-DOUCE",
+      "marque": "SAUCEMAKER"
+    }
+  },
+  {
+    "mcta": "Farine",
+    "gfs": {
+      "id": "0233778",
+      "format": "3.7L",
+      "description": "SAUCE CHILI SUCREE THAI",
+      "marque": "SAUCEMAKER"
+    }
+  },
+  {
+    "mcta": "Gant latex jaune",
+    "gfs": {
+      "id": "1244619",
+      "format": "28Z",
+      "description": "SAUCE SRIRACHA",
+      "marque": "HUY FONG"
+    }
+  },
+  {
+    "mcta": "Ail haché",
+    "gfs": {
+      "id": "3409058",
+      "format": "3.78L",
+      "description": "SAUCE PLT COTE/LEV DIANA",
+      "marque": "DIANA"
+    }
+  },
+  {
+    "mcta": "Demi glace",
+    "gfs": {
+      "id": "5730028",
+      "format": "350ML",
+      "description": "SAUCE TABASCO EXTRA FORT",
+      "marque": "TABASCO"
+    }
+  },
+  {
+    "mcta": "Bacon bite",
+    "gfs": {
+      "id": "0769338",
+      "format": "4.54KG",
+      "description": "SAUCE MEL BRUNE INST",
+      "marque": "BERTHELET"
+    }
+  },
+  {
+    "mcta": "Eau eska 1.5 litre",
+    "gfs": {
+      "id": "1249326",
+      "format": "750G",
+      "description": "SAUCE MEL POIVRE VERT",
+      "marque": "KNORR"
+    }
+  },
+  {
+    "mcta": "Demi glace",
+    "gfs": {
+      "id": "1869338",
+      "format": "5KG",
+      "description": "SAUCE MEL POUTINE",
+      "marque": "BERTHELET"
+    }
+  },
+  {
+    "mcta": "Demi glace",
+    "gfs": {
+      "id": "5199338",
+      "format": "4KG",
+      "description": "SAUCE MEL TROIS POIVRES",
+      "marque": "NAPPE BLANCHE"
+    }
+  },
+  {
+    "mcta": "sac sous-vide 6x10",
+    "gfs": {
+      "id": "0063458",
+      "format": "20L",
+      "description": "MAYONNAISE S/GLUTEN",
+      "marque": "HELLMANN'S"
+    }
+  },
+  {
+    "mcta": "Ail haché",
+    "gfs": {
+      "id": "1193908",
+      "format": "3.78L",
+      "description": "VIN MOUTARDE DIJ/MIEL CREMEUSE S/GLUTEN",
+      "marque": "HELLMANN'S"
+    }
+  },
+  {
+    "mcta": "Demi glace",
+    "gfs": {
+      "id": "1310831",
+      "format": "3.78L",
+      "description": "VIN CESAR STYLE MAISON",
+      "marque": "PEPPER MILL"
+    }
+  },
+  {
+    "mcta": "Gant latex jaune",
+    "gfs": {
+      "id": "1310838",
+      "format": "3.78L",
+      "description": "VIN GRECQUE FETA",
+      "marque": "PEPPER MILL"
+    }
+  },
+  {
+    "mcta": "sac sous-vide 6x10",
+    "gfs": {
+      "id": "1315626",
+      "format": "3.78L",
+      "description": "VIN CESAR",
+      "marque": "RENEE'S GOURMET"
+    }
+  },
+  {
+    "mcta": "Demi glace",
+    "gfs": {
+      "id": "5859258",
+      "format": "3.78L",
+      "description": "VIN GRECQUE FETA/ORIGAN S/GLUTEN",
+      "marque": "KRAFT"
+    }
+  },
+  {
+    "mcta": "Farine",
+    "gfs": {
+      "id": "1026568",
+      "format": "5L",
+      "description": "VINAIGRE BL",
+      "marque": "GFS"
+    }
+  },
+  {
+    "mcta": "Demi glace",
+    "gfs": {
+      "id": "1173458",
+      "format": "2.84L",
+      "description": "PIMENT JALAPENO TR SAC",
+      "marque": "MEXICASA"
+    }
+  },
+  {
+    "mcta": "sac sous-vide 6x10",
+    "gfs": {
+      "id": "1219898",
+      "format": "4L",
+      "description": "CORNICHON ANETH KOSHER",
+      "marque": "MRS WHYTES"
+    }
+  },
+  {
+    "mcta": "sac sous-vide 6x10",
+    "gfs": {
+      "id": "3757828",
+      "format": "8L",
+      "description": "PIMENT BANANE FORT TR",
+      "marque": "GFS"
+    }
+  },
+  {
+    "mcta": "Ail haché",
+    "gfs": {
+      "id": "1110464",
+      "format": "4L",
+      "description": "OLIVE VERTE TR",
+      "marque": "GFS"
+    }
+  },
+  {
+    "mcta": "Demi glace",
+    "gfs": {
+      "id": "1110471",
+      "format": "2.84L",
+      "description": "OLIVE NOIRE TR",
+      "marque": "GFS"
+    }
+  },
+  {
+    "mcta": "Farine",
+    "gfs": {
+      "id": "1110476",
+      "format": "4L",
+      "description": "OLIVE VERTE FARCIE REINE",
+      "marque": "GFS"
+    }
+  },
+  {
+    "mcta": "Farine",
+    "gfs": {
+      "id": "1110486",
+      "format": "2.84L",
+      "description": "OLIVE NOIRE TR",
+      "marque": "KITCH ESSENTIAL"
+    }
+  },
+  {
+    "mcta": "Demi glace",
+    "gfs": {
+      "id": "1153337",
+      "format": "12KG",
+      "description": "OLIVE KALAMATA LARGE A/NOYAU",
+      "marque": "SUNMED"
+    }
+  },
+  {
+    "mcta": "sac sous-vide 6x10",
+    "gfs": {
+      "id": "2807138",
+      "format": "3.5KG",
+      "description": "OLIVE NOIRE/VERTE PARTY MIX",
+      "marque": "SARDO"
+    }
+  },
+  {
+    "mcta": "sac sous-vide 6x10",
+    "gfs": {
+      "id": "1198887",
+      "format": "3L",
+      "description": "HUILE OLIVE X-VIERGE",
+      "marque": "EMMA"
+    }
+  },
+  {
+    "mcta": "Ail haché",
+    "gfs": {
+      "id": "1056918",
+      "format": "9.07KG",
+      "description": "PASTA SPAGHETTINI 20PO",
+      "marque": "GFS"
+    }
+  },
+  {
+    "mcta": "sac sous-vide 6x10",
+    "gfs": {
+      "id": "1106918",
+      "format": "9.07KG",
+      "description": "PASTA FETTU 20PO",
+      "marque": "GFS"
+    }
+  },
+  {
+    "mcta": "Demi glace",
+    "gfs": {
+      "id": "1247965",
+      "format": "9.07KG",
+      "description": "PASTA PENNE RIGATE PETIT",
+      "marque": "GFS"
+    }
+  },
+  {
+    "mcta": "Farine",
+    "gfs": {
+      "id": "1152722",
+      "format": "1KG",
+      "description": "SEL FIN IODE",
+      "marque": "PANTRY SHELF"
+    }
+  },
+  {
+    "mcta": "Gant latex jaune",
+    "gfs": {
+      "id": "1117304",
+      "format": "2KG",
+      "description": "SUCRE FIN",
+      "marque": "LANTIC"
+    }
+  }
+]

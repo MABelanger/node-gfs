@@ -1,0 +1,295 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<META http-equiv="Content-Style-Type" content="text/css">
+<META name="GENERATOR" content="IBM WebSphere Page Designer V4.0 for Windows">
+<title>Information sur le produit</title>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="format-detection" content="telephone=no">
+<meta name = "viewport" content = "initial-scale = 1.0">
+<!--link type="text/css" href="js/css/smoothness/jquery-ui-1.8.5.custom.css?Version 6.5.0_20160928" rel="stylesheet" /-->
+<link rel="stylesheet" type="text/css" href="js/superfish-1.4.8/css/superfish.css?Version 6.5.0_20160928" media="screen">
+<link rel="stylesheet" type="text/css" href="js/css/jquery.treeview.css?Version 6.5.0_20160928" media="screen">
+<link rel="stylesheet" type="text/css" href="js/css/jquery.qtip.css?Version 6.5.0_20160928" media="screen">
+
+
+<!-- Minified versions of the files go here -->
+<script src="js/jquery-1.7.2.min.js?Version 6.5.0_20160928"></script>
+<script src="js/jquery.layout-1.3.0.rc30.5.js?Version 6.5.0_20160928"></script>		<!-- Could not find minified version, need to create one and put it here. -->
+<script src="js/jquery.tools-1.2.7.min.js?Version 6.5.0_20160928"></script>
+<script src="js/jquery.treeview.js?Version 6.5.0_20160928"></script>					<!-- Could not find minified version, need to create one and put it here. -->
+<script src="js/jquery.contextmenu.js?Version 6.5.0_20160928"></script>				<!-- Could not find minified version, need to create one and put it here. -->
+<script src="js/jquery.alerts.js?Version 6.5.0_20160928"></script>						<!-- Could not find minified version, need to create one and put it here. -->
+<script src="js/jquery.blockUI-2.39.js?Version 6.5.0_20160928"></script>				<!-- Could not find minified version, need to create one and put it here. -->
+<script src="js/jqueryform.js?Version 6.5.0_20160928"></script>						<!-- Could not find minified version, need to create one and put it here. -->
+<script src="js/superfish-1.4.8/js/hoverIntent.js?Version 6.5.0_20160928"></script>	<!-- Could not find minified version, need to create one and put it here. -->
+<script src="js/superfish-1.4.8/js/superfish.js?Version 6.5.0_20160928"></script>		<!-- Could not find minified version, need to create one and put it here. -->
+<script src="js/superfish-1.4.8/js/supersubs.js?Version 6.5.0_20160928"></script>		<!-- Could not find minified version, need to create one and put it here. -->
+<script src="js/jquery.bpopup-0.7.0.min.js?Version 6.5.0_20160928"></script>
+<script src="js/iscroll.js?Version 6.5.0_20160928"></script>							<!-- Could not find minified version, need to create one and put it here. -->
+<script src="js/jquery.selectBox.js?Version 6.5.0_20160928"></script>					<!-- Could not find minified version, need to create one and put it here. -->
+<script src="js/jquery.scrollintoview.js?Version 6.5.0_20160928"></script>				<!-- Could not find minified version, need to create one and put it here. -->
+<script src="js/jquery.qtip.js?Version 6.5.0_20160928"></script>						<!-- Could not find minified version, need to create one and put it here. -->
+<script src="js/jquery.keypad.js?Version 6.5.0_20160928"></script>						<!-- Could not find minified version, need to create one and put it here. -->
+<script src="js/common.js?Version 6.5.0_20160928"></script>							<!-- Could not find minified version, need to create one and put it here. -->
+<script src="js/jquery.ncrautocomplete.js?Version 6.5.0_20160928"></script>
+<script src="prodscript/Unveil/ga.js?Version 6.5.0_20160928"/></script>
+<script src="prodscript/Unveil/widgets.js?Version 6.5.0_20160928"/></script>
+<script src="prodscript/Unveil/jquery.unveil.js?Version 6.5.0_20160928"/></script>
+
+
+
+<script>
+var screenSessionID = '1497144009033';
+
+var confirmTitle = 'Confirmer';
+var alertsTitle = 'Avertissement';
+var okTitle = 'OK';
+var cancelTitle = 'Annuler';
+
+$(document).ready(function() {
+
+	//Alert messages
+	$.alerts.okButton = '&nbsp;' + okTitle + '&nbsp;';
+	$.alerts.cancelButton = '&nbsp;' + cancelTitle + '&nbsp;';
+
+	//Set the tab's with the company name.
+	parent.document.title="GFS CANADA INC. - MONTREAL";
+	//Build the tool tip.
+	buildToolTip();
+
+
+	if ($('div.paneldiv').length == 0) {
+		$(parent.document).find("#mainmenubar").css('display','none');
+		$(parent.document).find("#globalToolbar").css('display','none');
+	}
+
+
+
+	$(this).find("ul.sf-menu ul").hide().css('visibility','hidden').find("li").removeClass("sfHover");
+	if (parent) $(parent.document).find("ul.sf-menu ul").hide().css('visibility','hidden').find("li").removeClass("sfHover");
+});
+
+$(document).mousedown(function(e) {
+	if ($(e.target).parents(".sf-menu").size() == 0) {
+		$(this).find("ul.sf-menu ul").hide().css('visibility','hidden').find("li").removeClass("sfHover");
+		if (parent) $(parent.document).find("ul.sf-menu ul").hide().css('visibility','hidden').find("li").removeClass("sfHover");
+	}
+});
+var iconpath = "prodtheme/icons/";
+
+var enableUnveil = false;
+var theDateFormat = 'MM/dd/yyyy';
+var	isRotateAds = 'N';
+
+isRotateAds = 'I';
+
+var itemViewHeight = 700;
+var itemViewWidth = 790;
+var applicationName = '&nbsp;';
+var companyLogoPowerNet = '/pnet/customer/image/42274_GFSconnect_Logo_Safe_Web.png';
+var defaultCompanyLogoPNet = '/pnet/prodtheme/prodimage/logo_header.png';
+
+
+</script>
+<link rel="stylesheet" type="text/css" href="/pnet/prodtheme/general.css?Version 6.5.0_20160928">
+<link rel="stylesheet" type="text/css" href="/pnet/prodtheme/guidedsearch.css?Version 6.5.0_20160928" media="screen">
+<link rel="stylesheet" type="text/css" href="/pnet/js/css/jquery.selectBox.css?Version 6.5.0_20160928" media="screen">
+<link rel="stylesheet" type="text/css" href="/pnet/prodtheme/wizard.css?Version 6.5.0_20160928">
+<link rel="stylesheet" type="text/css" href="/pnet/prodtheme/wizarditemcarousel.css?Version 6.5.0_20160928">
+<link rel="stylesheet" type="text/css" href="/pnet/prodtheme/print.css?Version 6.5.0_20160928" media="print">
+<link rel="stylesheet" type="text/css" href="/pnet/prodtheme/sprite.css?Version 6.5.0_20160928">
+<link rel="stylesheet" type="text/css" href="/pnet/prodtheme/autocomplete.css?Version 6.5.0_20160928" media="screen">
+<link rel="stylesheet" type="text/css" href="/pnet/customer/customer.css?20170529-192815">
+<link rel="stylesheet" type="text/css" href="/pnet/customer/customerprint.css?20170529-192815" media="print">
+<script>ServletPath="/pnet/eOrder";</SCRIPT>
+
+
+<script>
+var alertsMessages = new Array();
+
+</script>
+
+
+
+<script>openMenuOnClick=0;</SCRIPT>
+<script>closeMenuOnClick=0;</SCRIPT>
+
+<script src="/pnet/NLSConstants.jsp"></script>
+<script src="/pnet/prodscript/standard.js?Version 6.5.0_20160928"></script>
+
+<script>alertTO=2400000;</script>
+
+
+
+<script>
+$(document).ready(function() {
+	$("li span:last-child").addClass('lastSpan');
+});
+</script>
+<style type="text/css">
+li {
+	list-style-type: none;
+}
+.ProductHeader.last {
+  	border-bottom: 1px solid black;
+ }
+ .lastOne {
+  	border-bottom: 1px solid black;
+ }
+#ProductMainRight .ProductList .ProductHeader {
+    border-top: 1px solid black;
+    padding: 2px 0px;
+    overflow: hidden;
+}
+</style>
+
+</head>
+<body>
+
+	<div id="ProductImage">
+		<img src="https://f00dp1cs.gfs.ca/production_images/00620868499671/en/Default/Small/00620868499671.jpg" height="100px" onError="this.src='/pnet/prodtheme/prodimage/nophoto.png'" />
+		<br>
+		<p>
+
+		</p>
+
+		<p>
+
+			<table>
+			<tr>
+				<td><b>Prix:</b></td>
+				<td align="right">$21.89</td>
+			</tr>
+
+
+			</table>
+
+		</p>
+
+	</div>
+	<div id="ProductMainRight">
+		<div class="ProductNameTitle">BAGEL PLEIN SAVEUR TR (0093188)</div>
+		<ul class="ProductList">
+
+			<li class="ProductHeader">
+				<span>N° de produit du client</span>
+				<span></span>
+			</li>
+
+
+			<li class="ProductHeader">
+				<span>Paquet</span>
+				<span>6</span>
+			</li>
+			<li class="ProductHeader">
+				<span>Format</span>
+				<span>6X112G</span>
+			</li>
+			<li class="ProductHeader last">
+				<span>Marque</span>
+				<span>GFS</span>
+			</li>
+			</ul>
+
+			<h2><div class="ProductNameTitle">Classifications</div></h2>
+			<ul class="ProductList">
+
+
+			<li class="ProductHeader">
+				<span>
+
+				Catégorie
+
+				</span>
+				<span>SURG PAIN À DÉJEUNER (14080)</span>
+			</li>
+
+
+
+
+
+			<li class="ProductHeader">
+				<span>
+
+					Classe
+
+				</span>
+				<span>CONGELE (2)</span>
+			</li>
+
+
+
+			<li class="ProductHeader">
+				<span>Fabricant</span>
+				<span>GFS CANADA COMPANY (60944)</span>
+			</li>
+
+			<li class="lastOne"></li>
+		</ul>
+
+
+		<h2><div class="ProductNameTitle">Inventaire</div></h2>
+		<ul class="ProductList">
+			<li class="ProductHeader">
+				<span>Caisse(s) en stock</span>
+				<span>24</span>
+			</li>
+
+			<li class="ProductHeader">
+				<span>Unite(s) en stock</span>
+				<span>0</span>
+			</li>
+
+			<li class="ProductHeader">
+				<span>En commande</span>
+				<span>30</span>
+			</li>
+			<li class="ProductHeader last">
+				<span>Date prévue</span>
+				<span>06/20/2017</span>
+			</li>
+		</ul>
+
+
+		</div>
+
+</body>
+</html>

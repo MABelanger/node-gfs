@@ -1,0 +1,25 @@
+{
+  "name": "node-gfs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "node_modules/nodemon/bin/nodemon.js node_modules/babel-cli/bin/babel-node.js --debug --presets es2015 -- server.js --debug",
+    "test": "mocha **/*.test.js --compilers js:babel-register"
+  },
+  "author": "Michel-Alexandre Belanger",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "request": "^2.81.0",
+    "socket.io": "^2.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2"
+  }
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head><title>Hello world</title></head>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    var socket = io();
+    socket.on('testerEvent', function(data){document.write(data.description + " ")});
+    socket.emit('clientEvent', JSON.stringify(
+      [
+        {
+          "mcta": "Aile de poulet",
+          "gfs": {
+            "id": "1229471",
+            "format": "880G",
+            "description": "CONFIT OIGN CARAMELISE",
+            "marque": "BRICKSTONE"
+          }
+        },
+        {
+          "mcta": "Bacon bite",
+          "gfs": {
+            "id": "1162738",
+            "format": "2.84L",
+            "description": "TOMATE PATE",
+            "marque": "KITCH ESSENTIAL"
+          }
+        },
+        {
+          "mcta": "Demi glace",
+          "gfs": {
+            "id": "4219378",
+            "format": "3.78L",
+            "description": "SAUCE SALSA DOUCE",
+            "marque": "MEXICASA"
+          }
+        }
+      ]
+    ));
+  </script>
+  <body>Hello world</body>
+</html>
