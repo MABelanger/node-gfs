@@ -61,10 +61,19 @@ function getProductName(data) {
   return null;
 }
 
+function getParsedData(data) {
+  return {
+    productName : getProductName(data),
+    packetFormat : getPacketFormat(data),
+    price: getPrice(data)
+  };
+}
+
 module.exports = {
   getPrice,
   getPacket,
   getFormat,
   getPacketFormat,
-  getProductName
+  getProductName,
+  getParsedData
 };

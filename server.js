@@ -1,10 +1,10 @@
 'use strict';
 
-import requestGfs from './request-gfs';
+import htmlScraper from './html-scraper';
 
-var app = require('express')();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+let app = require('express')();
+let http = require('http').Server(app);
+let io = require('socket.io')(http);
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
@@ -15,22 +15,20 @@ io.on('connection', function(socket){
   console.log('A user connected');
 
   socket.on('clientEvent', function(data){
-    var items = JSON.parse(data);
-    
-    for(var i=0; i<items.length; i++) {
+    let items = JSON.parse(data);
 
+    for(let i=0; i<items.length; i++) {
       (function(i){
         setTimeout(function(){
-          var item = items[i];
-          var itemId = item.gfs.id;
-          var itemNameMcta = item.mcta;
-          var itemNameGfs = item.gfs.description;
-          requestGfs.getPrice(itemId, function cb(price){
+          let item = items[i];
+          let itemId = item.gfs.id;
+          let itemNameMcta = item.mcta;
+          let itemNameGfs = item.gfs.description;
+          htmlScraper.requestData(itemId, '0000z-YIVCmwao5cs1H-YAO4rcW:19tl92die', function cb(price){
             socket.emit('testerEvent', { description: price });
           });
         }, i*1000);
       })(i);
-
     }
   });
 
