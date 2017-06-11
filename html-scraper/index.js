@@ -14,7 +14,6 @@ function requestData(itemId, sessionId, cb) {
   request(optionsMainPage, function (error, response, body) {
     // Second request to get the real data
     request(optionsDetailsPage, function (error, response, body) {
-      console.log('htmlParser.getParsedData(body)', htmlParser.getParsedData(body))
       cb( htmlParser.getParsedData(body) )
     });
   });

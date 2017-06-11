@@ -14,14 +14,16 @@ app.get('/', function(req, res){
 io.on('connection', function(socket){
   console.log('A user connected');
 
-  socket.on('clientEvent', function(data){
-    let ids = JSON.parse(data);
+  socket.on('clientEvent', function(jsonData){
+    let data = JSON.parse(jsonData);
+    let sessionId = data.sessionId;
+    let ids = data.ids;
 
     for(let i=0; i<ids.length; i++) {
       (function(i){
         setTimeout(function(){
           let id = ids[i];
-          htmlScraper.requestData(id, '0000z-YIVCmwao5cs1H-YAO4rcW:19tl92die', function cb(parsedData){
+          htmlScraper.requestData(id, sessionId, function cb(parsedData){
             socket.emit('testerEvent', parsedData);
           });
         }, i*1000);

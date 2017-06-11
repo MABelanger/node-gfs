@@ -8,9 +8,10 @@
       document.write(data.price + " ")
     });
 
-    socket.emit('clientEvent', JSON.stringify(
-      ["1229471","1162738","4219378"]
-    ));
+    socket.emit('clientEvent', JSON.stringify({
+      ids: ["1229471","1162738","4219378"],
+      sessionId : '0000z-YIVCmwao5cs1H-YAO4rcW:19tl92die'
+    }));
   </script>
   <body></body>
 </html>
