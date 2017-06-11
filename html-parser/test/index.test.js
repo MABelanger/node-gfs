@@ -3,7 +3,7 @@
 const expect = require('chai').expect;
 const fs = require('fs');
 
-const htmlParser = require('./index');
+const htmlParser = require('../index');
 
 describe('html-parser bagel.html', () => {
 
