@@ -15,17 +15,14 @@ io.on('connection', function(socket){
   console.log('A user connected');
 
   socket.on('clientEvent', function(data){
-    let items = JSON.parse(data);
+    let ids = JSON.parse(data);
 
-    for(let i=0; i<items.length; i++) {
+    for(let i=0; i<ids.length; i++) {
       (function(i){
         setTimeout(function(){
-          let item = items[i];
-          let itemId = item.gfs.id;
-          let itemNameMcta = item.mcta;
-          let itemNameGfs = item.gfs.description;
-          htmlScraper.requestData(itemId, '0000z-YIVCmwao5cs1H-YAO4rcW:19tl92die', function cb(price){
-            socket.emit('testerEvent', { description: price });
+          let id = ids[i];
+          htmlScraper.requestData(id, '0000z-YIVCmwao5cs1H-YAO4rcW:19tl92die', function cb(parsedData){
+            socket.emit('testerEvent', parsedData);
           });
         }, i*1000);
       })(i);
