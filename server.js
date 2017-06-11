@@ -1,14 +1,41 @@
 'use strict';
 
 import htmlScraper from './html-scraper';
+import utils from './utils';
+import mock from './mock.json';
 
 let app = require('express')();
 let http = require('http').Server(app);
 let io = require('socket.io')(http);
 
+
+
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
+
+function emitFromHmlScraper(id, sessionId, socket) {
+  let date = utils.formatDate(new Date());
+  htmlScraper.requestData(id, sessionId, function cb(parsedData){
+    let allData = Object.assign(parsedData, {
+      id: id,
+      date: date
+    })
+    socket.emit('testerEvent', allData);
+  }); // end requestData()
+}
+
+function emitFromMock(i, socket) {
+  let date = utils.formatDate(new Date());
+  let parsedData = mock[i];
+  let id = parsedData.id;
+  let allData = Object.assign(parsedData, {
+    id: id,
+    date: date
+  });
+  socket.emit('testerEvent', allData);
+}
+
 
 //Whenever someone connects this gets executed
 io.on('connection', function(socket){
@@ -16,18 +43,18 @@ io.on('connection', function(socket){
 
   socket.on('clientEvent', function(jsonData){
     let data = JSON.parse(jsonData);
-    let sessionId = data.sessionId;
-    let ids = data.ids;
+    let { sessionId, ids } = data;
 
-    for(let i=0; i<ids.length; i++) {
-      setTimeout(function(){
-        let id = ids[i];
-        htmlScraper.requestData(id, sessionId, function cb(parsedData){
-          socket.emit('testerEvent', parsedData);
-        });
-      }, i*1000);
-    }
-  });
+    if(ids && ids.length > 0) {
+      for(let i=0; i<ids.length; i++) {
+        setTimeout(function(){
+          let id = ids[i];
+          //emitFromHmlScraper(id, sessionId, socket);
+          emitFromMock(i, socket);
+        }, i*1000); // end setTimeout()
+      } // end for()
+    } // end if()
+  }); // end clientEvent()
 
   socket.on('disconnect', function () {
     console.log('A user disconnected');
