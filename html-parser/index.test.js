@@ -17,27 +17,27 @@ describe('html-parser bagel.html', () => {
     });
   });
 
-	it('should getPrice()', () => {
+  it('should getPrice()', () => {
     expect( htmlParser.getPrice(bagelData) ).to.be.equal(21.89);
-	});
+  });
 
   it('should getPacket()', () => {
     expect( htmlParser.getPacket(bagelData) ).to.be.equal(6);
-	});
+  });
 
   it('should getFormat()', () => {
     expect( htmlParser.getFormat(bagelData) ).to.be.equal('6X112G');
-	});
+  });
 
   it('should getPacketFormat()', () => {
     expect( htmlParser.getPacketFormat(bagelData) )
       .to.be.equal(htmlParser.getPacket(bagelData) + 'X' + htmlParser.getFormat(bagelData));
-	});
+  });
 
   // SURG PAIN À DÉJEUNER (14080)
   it('should getProductName()', () => {
     expect( htmlParser.getProductName(bagelData) ).to.be.equal('BAGEL PLEIN SAVEUR TR');
-	});
+  });
 });
 
 describe('html-parser poivre.html', () => {
@@ -52,25 +52,25 @@ describe('html-parser poivre.html', () => {
     });
   });
 
-	it('should getPrice()', () => {
+  it('should getPrice()', () => {
     expect( htmlParser.getPrice(poivreData) ).to.be.equal(162.57);
-	});
+  });
 
   it('should getPacket()', () => {
     expect( htmlParser.getPacket(poivreData) ).to.be.equal(6);
-	});
+  });
 
   it('should getFormat()', () => {
     expect( htmlParser.getFormat(poivreData) ).to.be.equal('1X750G');
-	});
+  });
 
   it('should getPacketFormat()', () => {
     expect( htmlParser.getPacketFormat(poivreData) )
       .to.be.equal(htmlParser.getPacket(poivreData) + 'X' + htmlParser.getFormat(poivreData));
-	});
+  });
 
   // SURG PAIN À DÉJEUNER (14080)
   it('should getProductName()', () => {
     expect( htmlParser.getProductName(poivreData) ).to.be.equal('SAUCE MEL POIVRE VERT');
-	});
+  });
 });
