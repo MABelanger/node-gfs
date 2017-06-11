@@ -20,14 +20,12 @@ io.on('connection', function(socket){
     let ids = data.ids;
 
     for(let i=0; i<ids.length; i++) {
-      (function(i){
-        setTimeout(function(){
-          let id = ids[i];
-          htmlScraper.requestData(id, sessionId, function cb(parsedData){
-            socket.emit('testerEvent', parsedData);
-          });
-        }, i*1000);
-      })(i);
+      setTimeout(function(){
+        let id = ids[i];
+        htmlScraper.requestData(id, sessionId, function cb(parsedData){
+          socket.emit('testerEvent', parsedData);
+        });
+      }, i*1000);
     }
   });
 
