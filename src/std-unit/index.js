@@ -18,8 +18,7 @@ function getFormatObj(packetFormat){
 function getItemQuantity(mesure) {
   let myRegexp = /\d+(\.\d+)?/g;
   let match = myRegexp.exec(mesure);
-
-  if( match && match.length > 1 ) {
+  if( match && match[0] ) {
     return match[0];
   }
   return null;
@@ -29,8 +28,7 @@ function getItemQuantity(mesure) {
 function getItemUnit(mesure) {
   let myRegexp = /[a-zA-Z]+$/g;
   let match = myRegexp.exec(mesure);
-
-  if( match && match.length > 0 ) {
+  if( match && match[0] ) {
     return match[0];
   }
   return null;
