@@ -15,8 +15,8 @@ describe('format-converter', () => {
 
   it('should getTypeOfMesurement("K")', () => {
     expect(formatConverter.getTypeOfMesurement("L")).to.be.equal(TYPES.VOLUME);
-    expect(formatConverter.getTypeOfMesurement("G")).to.be.equal("weight");
-    expect(formatConverter.getTypeOfMesurement("UN")).to.be.equal("unity");
+    expect(formatConverter.getTypeOfMesurement("G")).to.be.equal(TYPES.WEIGHT);
+    expect(formatConverter.getTypeOfMesurement("UN")).to.be.equal(TYPES.UNITY);
   });
 
 
@@ -50,7 +50,7 @@ describe('format-converter', () => {
     }
 
     let standardFormat = formatConverter.getStandardFormat(formatObj);
-    expect(standardFormat.typeOfMesurement).to.be.equal("weight");
+    expect(standardFormat.typeOfMesurement).to.be.equal(TYPES.WEIGHT);
   });
 
 });
