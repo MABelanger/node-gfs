@@ -10,7 +10,6 @@ function splitValue(packetFormat) {
   return packetFormat.split('X');
 }
 
-
 // 123KG => 123, 55.4G => 55.4
 function getItemQuantity(mesure) {
   let myRegexp = /\d+(\.\d+)?/g;
@@ -31,7 +30,6 @@ function getPrefixAndUnit(mesure) {
   return null;
 }
 
-
 function getFormatObj(packetFormat){
   let values = splitValue(packetFormat);
   let mesure = values[2]; // Example:. 180KG
@@ -45,8 +43,6 @@ function getFormatObj(packetFormat){
     unitSymbol : prefixAndUnitSplitter.getUnitSymbol(prefixAndUnit)
   }
 }
-
-
 
 module.exports = {
   getFormatObj,

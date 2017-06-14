@@ -19,14 +19,12 @@ describe('format-converter', () => {
     expect(formatConverter.getTypeOfMesurement("UN")).to.be.equal(TYPES.UNITY);
   });
 
-
   it('should getMultiplicator("K")', () => {
     expect(formatConverter.getMultiplicator("K")).to.be.equal(1000);
     expect(formatConverter.getMultiplicator("M")).to.be.equal(1/1000);
   });
 
   it('should getStandardFormat().quantity', () => {
-
     let formatObj = {
       packet: "3",
       format: "2",
@@ -40,7 +38,6 @@ describe('format-converter', () => {
   });
 
   it('should getStandardFormat().typeOfMesurement', () => {
-
     let formatObj = {
       packet: "3",
       format: "2",

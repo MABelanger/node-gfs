@@ -40,9 +40,10 @@ describe('format-splitter', () => {
 
   it('should getFormatObj() get {packet, format, quantity, prefixSymblol, unitSymbol}', () => {
     let mesure = "880KG";
+    let packetFormat = "2X4X" + mesure;
     let prefixAndUnit = formatSplitter.getPrefixAndUnit(mesure);
     let { packet, format, quantity, prefixSymblol, unitSymbol } =
-                                formatSplitter.getFormatObj("2X4X" + mesure);
+                                formatSplitter.getFormatObj(packetFormat);
 
     expect( packet ).to.be.equal('2');
     expect( format ).to.be.equal('4');

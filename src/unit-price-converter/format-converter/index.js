@@ -1,12 +1,9 @@
 'use strict';
 
-const formatSplitter = require('../format-splitter');
-
 // http://ukma.org.uk/docs/ukma-style-guide.pdf
 
-
+const formatSplitter = require('../format-splitter');
 const { TYPES, HEIGHT_UNITS, VOLUME_UNITS, UNITY_UNITS } = require('./constants');
-
 
 /**
  * @private
