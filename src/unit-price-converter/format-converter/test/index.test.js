@@ -13,15 +13,15 @@ describe('format-converter', () => {
     expect(true).to.be.true;
   });
 
-  it('should getTypeOfMesurement("K")', () => {
-    expect(formatConverter.getTypeOfMesurement("L")).to.be.equal(TYPES.VOLUME);
-    expect(formatConverter.getTypeOfMesurement("G")).to.be.equal(TYPES.WEIGHT);
-    expect(formatConverter.getTypeOfMesurement("UN")).to.be.equal(TYPES.UNITY);
+  it('should _getTypeOfMesurement("K")', () => {
+    expect(formatConverter._getTypeOfMesurement("L")).to.be.equal(TYPES.VOLUME);
+    expect(formatConverter._getTypeOfMesurement("G")).to.be.equal(TYPES.WEIGHT);
+    expect(formatConverter._getTypeOfMesurement("UN")).to.be.equal(TYPES.UNITY);
   });
 
-  it('should getMultiplicator("K")', () => {
-    expect(formatConverter.getMultiplicator("K")).to.be.equal(1000);
-    expect(formatConverter.getMultiplicator("M")).to.be.equal(1/1000);
+  it('should _getMultiplicator("K")', () => {
+    expect(formatConverter._getMultiplicator("K")).to.be.equal(1000);
+    expect(formatConverter._getMultiplicator("M")).to.be.equal(1/1000);
   });
 
   it('should getStandardFormat().quantity', () => {

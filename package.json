@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "node_modules/nodemon/bin/nodemon.js node_modules/babel-cli/bin/babel-node.js --debug --presets es2015 -- src/server.js --debug",
-    "test": "mocha src/**/test/*.test.js --compilers js:babel-register"
+    "test": "mocha ./**/test/*.test.js --compilers js:babel-register"
   },
   "author": "Michel-Alexandre Belanger",
   "license": "ISC",

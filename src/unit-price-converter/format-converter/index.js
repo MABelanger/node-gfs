@@ -3,12 +3,12 @@
 // http://ukma.org.uk/docs/ukma-style-guide.pdf
 
 const formatSplitter = require('../format-splitter');
-const { TYPES, HEIGHT_UNITS, VOLUME_UNITS, UNITY_UNITS } = require('./constants');
+const { TYPES, HEIGHT_UNITS, VOLUME_UNITS, UNITY_UNITS, STANDARD_SYMBOL_UNITS } = require('./constants');
 
 /**
  * @private
  */
-function getTypeOfMesurement(unitSymbol) {
+function _getTypeOfMesurement(unitSymbol) {
 
   if(HEIGHT_UNITS.find(item => { return item === unitSymbol } )){
     return TYPES.WEIGHT;
@@ -25,7 +25,7 @@ function getTypeOfMesurement(unitSymbol) {
 /**
  * @private
  */
-function getMultiplicator(prefixSymblol) {
+function _getMultiplicator(prefixSymblol) {
 
   if(prefixSymblol == "K"){
     return 1000;
@@ -38,22 +38,36 @@ function getMultiplicator(prefixSymblol) {
   return 1;
 }
 
+function _getStandardUnit(typeOfMesurement) {
+  if(typeOfMesurement == TYPES.WEIGHT) {
+    return STANDARD_SYMBOL_UNITS.WEIGHT;
+
+  } else if(typeOfMesurement == TYPES.VOLUME) {
+    return STANDARD_SYMBOL_UNITS.VOLUME;
+
+  } else if(typeOfMesurement == TYPES.UNITY) {
+    return STANDARD_SYMBOL_UNITS.UNITY;
+  }
+}
+
 function getStandardFormat(formatObj) {
   let { packet, format, quantity, prefixSymblol, unitSymbol } = formatObj;
-  let multiplicator = getMultiplicator(prefixSymblol);
-  let typeOfMesurement = getTypeOfMesurement(unitSymbol);
+  let multiplicator = _getMultiplicator(prefixSymblol);
+  let typeOfMesurement = _getTypeOfMesurement(unitSymbol);
+  let standardUnit = _getStandardUnit(typeOfMesurement);
 
   let standardQuantity =  parseInt(packet) * parseInt(format) * parseFloat(quantity) *
                      multiplicator;
 
   return {
     quantity : standardQuantity,
-    typeOfMesurement: typeOfMesurement
+    typeOfMesurement: typeOfMesurement,
+    standardUnit: standardUnit
   }
 }
 
 module.exports = {
-  getTypeOfMesurement,
-  getMultiplicator,
+  _getTypeOfMesurement,
+  _getMultiplicator,
   getStandardFormat
 }
