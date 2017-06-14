@@ -24,18 +24,18 @@ describe('format-splitter', () => {
   });
 
   it('should getFormatObj() G', () => {
-    let unit = formatSplitter.getPrefixAndUnit("2X1X880.5G");
-    expect(unit).to.be.equal('G');
+    let prefixAndUnit = formatSplitter.getPrefixAndUnit("880.5G");
+    expect(prefixAndUnit).to.be.equal('G');
   });
 
   it('should getPrefixAndUnit() KG', () => {
-    let unit = formatSplitter.getPrefixAndUnit("2X1X880.5KG");
-    expect(unit).to.be.equal('KG');
+    let prefixAndUnit = formatSplitter.getPrefixAndUnit("880.5KG");
+    expect(prefixAndUnit).to.be.equal('KG');
   });
 
   it('should getPrefixAndUnit() KG without float', () => {
-    let unit = formatSplitter.getPrefixAndUnit("2X1X880KG");
-    expect(unit).to.be.equal('KG');
+    let prefixAndUnit = formatSplitter.getPrefixAndUnit("880KG");
+    expect(prefixAndUnit).to.be.equal('KG');
   });
 
   it('should getFormatObj() get {packet, format, quantity, prefixSymblol, unitSymbol}', () => {
@@ -50,6 +50,4 @@ describe('format-splitter', () => {
     expect( prefixSymblol ).to.be.equal(prefixAndUnitSplitter.getPrefixSymbol(prefixAndUnit));
     expect( unitSymbol ).to.be.equal(prefixAndUnitSplitter.getUnitSymbol(unitSymbol));
   });
-
-
 });
