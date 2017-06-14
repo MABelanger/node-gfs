@@ -4,6 +4,7 @@ const expect = require('chai').expect;
 const fs = require('fs');
 
 const formatConverter = require('../index');
+const { TYPES } = require('../constants');
 
 
 describe('format-converter', () => {
@@ -13,7 +14,7 @@ describe('format-converter', () => {
   });
 
   it('should getTypeOfMesurement("K")', () => {
-    expect(formatConverter.getTypeOfMesurement("L")).to.be.equal("volume");
+    expect(formatConverter.getTypeOfMesurement("L")).to.be.equal(TYPES.VOLUME);
     expect(formatConverter.getTypeOfMesurement("G")).to.be.equal("weight");
     expect(formatConverter.getTypeOfMesurement("UN")).to.be.equal("unity");
   });
@@ -38,7 +39,7 @@ describe('format-converter', () => {
     expect(standardFormat.quantity).to.be.equal(3 * 2 * 50 * 1000);
   });
 
-  it('should getStandardFormat().quantity', () => {
+  it('should getStandardFormat().typeOfMesurement', () => {
 
     let formatObj = {
       packet: "3",
@@ -49,7 +50,7 @@ describe('format-converter', () => {
     }
 
     let standardFormat = formatConverter.getStandardFormat(formatObj);
-    expect(standardFormat.quantity).to.be.equal(3 * 2 * 50 * 1000);
+    expect(standardFormat.typeOfMesurement).to.be.equal("weight");
   });
 
 });
