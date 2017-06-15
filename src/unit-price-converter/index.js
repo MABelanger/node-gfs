@@ -15,7 +15,7 @@ function getStandardPriceFormat(formatString, price) {
   let { quantity, standardUnit, typeOfMesurement } =
               formatConverter.getStandardFormat(formatObj);
 
-  if(quantity) {
+  if( quantity ) {
     let unitPrice = parseFloat( parseFloat(price) / parseFloat(quantity) );
     let unitPriceFormated = formatter.format(unitPrice).replace('$', '');
 

@@ -3,7 +3,7 @@
 // http://ukma.org.uk/docs/ukma-style-guide.pdf
 
 const formatSplitter = require('../format-splitter');
-const { TYPES, HEIGHT_UNITS, VOLUME_UNITS, UNITY_UNITS, STANDARD_SYMBOL_UNITS } =
+const { TYPES, HEIGHT_UNITS, VOLUME_UNITS, UNITY_UNITS, STANDARD } =
         require('./constants');
 
 /**
@@ -26,7 +26,7 @@ function _getTypeOfMesurement(unitSymbol) {
 /**
  * @private
  */
-function _getMultiplicator(prefixSymblol) {
+function _getPrefixMultiplicator(prefixSymblol) {
 
   if(prefixSymblol == "K"){
     return 1000;
@@ -39,36 +39,58 @@ function _getMultiplicator(prefixSymblol) {
   return 1;
 }
 
-function _getStandardUnit(typeOfMesurement) {
+function _getStandard(typeOfMesurement) {
   if(typeOfMesurement == TYPES.WEIGHT) {
-    return STANDARD_SYMBOL_UNITS.WEIGHT;
+    return STANDARD.WEIGHT;
 
   } else if(typeOfMesurement == TYPES.VOLUME) {
-    return STANDARD_SYMBOL_UNITS.VOLUME;
+    return STANDARD.VOLUME;
 
   } else if(typeOfMesurement == TYPES.UNITY) {
-    return STANDARD_SYMBOL_UNITS.UNITY;
+    return STANDARD.UNITY;
   }
+  return STANDARD.UNKNOW;
+}
+
+function _getValueConversion(unitSymbol) {
+  if (unitSymbol == 'LB' ){
+    return 453.592;
+  }
+
+  if (unitSymbol == 'Z' ){
+    return 43/1454;
+  }
+  return 1;
 }
 
 function getStandardFormat(formatObj) {
   let { packet, format, quantity, prefixSymblol, unitSymbol } = formatObj;
-  let multiplicator = _getMultiplicator(prefixSymblol);
-  let typeOfMesurement = _getTypeOfMesurement(unitSymbol);
-  let standardUnit = _getStandardUnit(typeOfMesurement);
 
-  let standardQuantity =  parseInt(packet) * parseInt(format) * parseFloat(quantity) *
-                     multiplicator;
+  let typeOfMesurement = _getTypeOfMesurement(unitSymbol);
+  let multiplicator = _getPrefixMultiplicator(prefixSymblol);
+  let valueConversion = _getValueConversion(unitSymbol);
+
+  let standardQuantity =  parseInt(packet) * parseInt(format)
+                          * parseFloat(quantity) * parseFloat(valueConversion) *
+                          parseFloat(multiplicator);
+
+
+  // multiply by the multiplicator standard ex:. kg need to * by 1000
+  let standard = _getStandard(typeOfMesurement);
+
+  console.log('standardQuantity', standardQuantity)
+  console.log('standard.multiplicator', standard.multiplicator)
+  standardQuantity = standardQuantity * parseFloat(standard.multiplicator);
 
   return {
     quantity : standardQuantity,
     typeOfMesurement: typeOfMesurement,
-    standardUnit: standardUnit
+    standardUnit: standard.unit
   }
 }
 
 module.exports = {
   _getTypeOfMesurement,
-  _getMultiplicator,
+  _getPrefixMultiplicator,
   getStandardFormat
 }

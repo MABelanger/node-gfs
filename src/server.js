@@ -3,6 +3,7 @@
 import htmlScraper from './html-scraper';
 import utils from './utils';
 import mock from './mock.json';
+import unitPriceConverter from './unit-price-converter';
 
 let app = require('express')();
 let http = require('http').Server(app);
@@ -28,9 +29,14 @@ function emitFromHmlScraper(id, sessionId, socket) {
 function emitFromMock(i, socket) {
   let date = utils.formatDate(new Date());
   let parsedData = mock[i];
-  let id = parsedData.id;
+  let { id, price, packetFormat } = parsedData;
+
+  let { unitPriceFormated, standardUnit }= unitPriceConverter.getStandardPriceFormat(packetFormat, price);
+
   let allData = Object.assign(parsedData, {
     id: id,
+    unitPriceFormated: unitPriceFormated,
+    standardUnit: standardUnit,
     date: date
   });
   socket.emit('testerEvent', allData);

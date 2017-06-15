@@ -34,7 +34,7 @@ describe('format-converter', () => {
     }
 
     let standardFormat = formatConverter.getStandardFormat(formatObj);
-    expect(standardFormat.quantity).to.be.equal(3 * 2 * 50 * 1000);
+    expect(standardFormat.quantity).to.be.equal(3 * 2 * 50 * 1000 * 1000);
   });
 
   it('should getStandardFormat().typeOfMesurement', () => {

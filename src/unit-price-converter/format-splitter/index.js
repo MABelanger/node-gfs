@@ -35,13 +35,15 @@ function getFormatObj(packetFormat){
   let mesure = values[2]; // Example:. 180KG
   let prefixAndUnit = getPrefixAndUnit(mesure); // Example :. KG
 
-  return {
+  let formatObj =  {
     packet: values[0],
     format: values[1],
     quantity : getItemQuantity(mesure),
     prefixSymblol: prefixAndUnitSplitter.getPrefixSymbol(prefixAndUnit),
     unitSymbol : prefixAndUnitSplitter.getUnitSymbol(prefixAndUnit)
-  }
+  };
+  
+  return formatObj;
 }
 
 module.exports = {
