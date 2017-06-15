@@ -25,7 +25,6 @@ function getStandardPriceFormat(formatString, price) {
       standardUnit
     }
   }
-
   return null;
 }
 

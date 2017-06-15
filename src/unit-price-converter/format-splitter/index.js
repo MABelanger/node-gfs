@@ -6,7 +6,7 @@ const prefixAndUnitSplitter = require('./prefix-and-unit-splitter');
 /**
  * @private
  */
-function splitValue(packetFormat) {
+function _splitValue(packetFormat) {
   return packetFormat.split('X');
 }
 
@@ -31,7 +31,7 @@ function getPrefixAndUnit(mesure) {
 }
 
 function getFormatObj(packetFormat){
-  let values = splitValue(packetFormat);
+  let values = _splitValue(packetFormat);
   let mesure = values[2]; // Example:. 180KG
   let prefixAndUnit = getPrefixAndUnit(mesure); // Example :. KG
 
@@ -42,7 +42,7 @@ function getFormatObj(packetFormat){
     prefixSymblol: prefixAndUnitSplitter.getPrefixSymbol(prefixAndUnit),
     unitSymbol : prefixAndUnitSplitter.getUnitSymbol(prefixAndUnit)
   };
-  
+
   return formatObj;
 }
 
