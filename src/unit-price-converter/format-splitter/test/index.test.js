@@ -24,30 +24,30 @@ describe('format-splitter', () => {
   });
 
   it('should getFormatObj() G', () => {
-    let prefixAndUnit = formatSplitter.getPrefixAndUnit("880.5G");
+    let prefixAndUnit = formatSplitter._getPrefixAndUnit("880.5G");
     expect(prefixAndUnit).to.be.equal('G');
   });
 
-  it('should getPrefixAndUnit() KG', () => {
-    let prefixAndUnit = formatSplitter.getPrefixAndUnit("880.5KG");
+  it('should _getPrefixAndUnit() KG', () => {
+    let prefixAndUnit = formatSplitter._getPrefixAndUnit("880.5KG");
     expect(prefixAndUnit).to.be.equal('KG');
   });
 
-  it('should getPrefixAndUnit() KG without float', () => {
-    let prefixAndUnit = formatSplitter.getPrefixAndUnit("880KG");
+  it('should _getPrefixAndUnit() KG without float', () => {
+    let prefixAndUnit = formatSplitter._getPrefixAndUnit("880KG");
     expect(prefixAndUnit).to.be.equal('KG');
   });
 
   it('should getFormatObj() get {packet, format, quantity, prefixSymblol, unitSymbol}', () => {
     let mesure = "880KG";
     let packetFormat = "2X4X" + mesure;
-    let prefixAndUnit = formatSplitter.getPrefixAndUnit(mesure);
+    let prefixAndUnit = formatSplitter._getPrefixAndUnit(mesure);
     let { packet, format, quantity, prefixSymblol, unitSymbol } =
                                 formatSplitter.getFormatObj(packetFormat);
 
     expect( packet ).to.be.equal('2');
     expect( format ).to.be.equal('4');
-    expect( quantity ).to.be.equal(formatSplitter.getItemQuantity(mesure));
+    expect( quantity ).to.be.equal(formatSplitter._getItemQuantity(mesure));
     expect( prefixSymblol ).to.be.equal(prefixAndUnitSplitter.getPrefixSymbol(prefixAndUnit));
     expect( unitSymbol ).to.be.equal(prefixAndUnitSplitter.getUnitSymbol(unitSymbol));
   });

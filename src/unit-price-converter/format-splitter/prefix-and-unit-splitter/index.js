@@ -1,9 +1,12 @@
 'use strict';
 
+const PREFIX_SYMBOLS = ['M', 'm', 'K', 'k'];
+
 // return K, k, M or m for(kilo and milli)
 // of KG, ML ...
 function getPrefixSymbol(prefixAndUnit) {
-  let myRegexp = /^[KkMm]+/g;
+  // let myRegexp = /^[KkMm]+/g;
+  let myRegexp = new RegExp('[' + PREFIX_SYMBOLS.join() + ']', "g");
   let match = myRegexp.exec(prefixAndUnit);
   if( match && match[0] ) {
     return match[0];

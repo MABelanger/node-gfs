@@ -39,6 +39,9 @@ function _getPrefixMultiplicator(prefixSymblol) {
   return 1;
 }
 
+/**
+ * @private
+ */
 function _getStandard(typeOfMesurement) {
   if(typeOfMesurement == TYPES.WEIGHT) {
     return STANDARD.WEIGHT;
@@ -52,6 +55,9 @@ function _getStandard(typeOfMesurement) {
   return STANDARD.UNKNOW;
 }
 
+/**
+ * @private
+ */
 function _getValueConversion(unitSymbol) {
   if (unitSymbol == 'LB' ){
     return 453.592;
@@ -70,9 +76,10 @@ function getStandardFormat(formatObj) {
   let multiplicator = _getPrefixMultiplicator(prefixSymblol);
   let valueConversion = _getValueConversion(unitSymbol);
 
+  // Get the Total quantity in the right format grams, liters and units
   let standardQuantity =  parseInt(packet) * parseInt(format)
-                          * parseFloat(quantity) * parseFloat(valueConversion) *
-                          parseFloat(multiplicator);
+                          * parseFloat(quantity) * parseFloat(valueConversion)
+                          * parseFloat(multiplicator);
 
 
   // multiply by the multiplicator standard ex:. kg need to * by 1000
