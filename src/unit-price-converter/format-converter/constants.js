@@ -13,6 +13,14 @@ const LITER = 'L';
 const OUNCE = 'Z';
 const UNITY = 'UN';
 
+const MILLI = 'M';
+const KILLO = 'K';
+
+const PREFIX = {
+  MILLI,
+  KILLO
+};
+
 const UNITS = {
   GRAM,
   POUND,
@@ -20,7 +28,7 @@ const UNITS = {
   LITER,
   OUNCE,
   UNITY
-}
+};
 
 const HEIGHT_UNITS = [GRAM, POUND, GRAM_A];
 const VOLUME_UNITS = [LITER, OUNCE];
@@ -51,5 +59,6 @@ module.exports = {
   HEIGHT_UNITS,
   VOLUME_UNITS,
   UNITY_UNITS,
-  UNITS
+  UNITS,
+  PREFIX
 };

@@ -4,7 +4,7 @@ const expect = require('chai').expect;
 const fs = require('fs');
 
 const formatConverter = require('../index');
-const { TYPES, STANDARD, UNITS } = require('../constants');
+const { TYPES, STANDARD, UNITS, PREFIX } = require('../constants');
 
 
 describe('format-converter', () => {
@@ -13,15 +13,15 @@ describe('format-converter', () => {
     expect(true).to.be.true;
   });
 
-  it('Private API : should _getTypeOfMesurement("K")', () => {
-    expect(formatConverter._getTypeOfMesurement("L")).to.be.equal(TYPES.VOLUME);
-    expect(formatConverter._getTypeOfMesurement("G")).to.be.equal(TYPES.WEIGHT);
-    expect(formatConverter._getTypeOfMesurement("UN")).to.be.equal(TYPES.UNITY);
+  it('Private API : should _getPrefixMultiplicator(prefixSymblol)', () => {
+    expect(formatConverter._getPrefixMultiplicator(PREFIX.KILLO)).to.be.equal(1000);
+    expect(formatConverter._getPrefixMultiplicator(PREFIX.MILLI)).to.be.equal(1/1000);
   });
 
-  it('Private API : should _getPrefixMultiplicator("K")', () => {
-    expect(formatConverter._getPrefixMultiplicator("K")).to.be.equal(1000);
-    expect(formatConverter._getPrefixMultiplicator("M")).to.be.equal(1/1000);
+  it('Private API : should _getTypeOfMesurement(unitSymbol)', () => {
+    expect(formatConverter._getTypeOfMesurement(UNITS.LITER)).to.be.equal(TYPES.VOLUME);
+    expect(formatConverter._getTypeOfMesurement(UNITS.GRAM)).to.be.equal(TYPES.WEIGHT);
+    expect(formatConverter._getTypeOfMesurement(UNITS.UNITY)).to.be.equal(TYPES.UNITY);
   });
 
   it('Private API : should _getStandard(typeOfMesurement)', () => {
@@ -44,8 +44,8 @@ describe('format-converter', () => {
       packet: "3",
       format: "2",
       quantity : "50",
-      prefixSymblol: "K",
-      unitSymbol : "G"
+      prefixSymblol: PREFIX.KILLO,
+      unitSymbol : UNITS.GRAM
     }
 
     let standardFormat = formatConverter.getStandardFormat(formatObj);
@@ -57,8 +57,8 @@ describe('format-converter', () => {
       packet: "3",
       format: "2",
       quantity : "50",
-      prefixSymblol: "K",
-      unitSymbol : "G"
+      prefixSymblol: PREFIX.KILLO,
+      unitSymbol : UNITS.GRAM
     }
 
     let standardFormat = formatConverter.getStandardFormat(formatObj);
