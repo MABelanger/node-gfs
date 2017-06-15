@@ -12,11 +12,11 @@ describe('unit-price-converter', () => {
 
   it('should getUnitPrice()', () => {
     let formatString = "2X1X3.78L";
-    let price = 5.50;
-    let { unitPrice, standardUnit } =
+    let price = "5.50";
+    let { unitPriceFormated, standardUnit } =
         unitPriceConverter.getStandardPriceFormat(formatString, price);
 
-    expect(unitPrice).to.be.equal(0.7275132275132276);
-    expect(standardUnit).to.be.equal('l');
+    expect( unitPriceFormated ).to.be.equal('0.73');
+    expect( standardUnit ).to.be.equal('l');
   });
 });
