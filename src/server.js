@@ -9,8 +9,6 @@ let app = require('express')();
 let http = require('http').Server(app);
 let io = require('socket.io')(http);
 
-
-
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
@@ -31,7 +29,8 @@ function emitFromMock(i, socket) {
   let parsedData = mock[i];
   let { id, price, packetFormat } = parsedData;
 
-  let { unitPriceFormated, standardUnit }= unitPriceConverter.getStandardPriceFormat(packetFormat, price);
+  let { unitPriceFormated, standardUnit }
+      = unitPriceConverter.getStandardPriceFormat(packetFormat, price);
 
   let allData = Object.assign(parsedData, {
     id: id,
@@ -57,7 +56,7 @@ io.on('connection', function(socket){
           let id = ids[i];
           //emitFromHmlScraper(id, sessionId, socket);
           emitFromMock(i, socket);
-        }, i*1000); // end setTimeout()
+        }, i * 1000); // end setTimeout()
       } // end for()
     } // end if()
   }); // end clientEvent()

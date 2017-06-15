@@ -4,7 +4,7 @@ const expect = require('chai').expect;
 const fs = require('fs');
 
 const formatConverter = require('../index');
-const { TYPES } = require('../constants');
+const { TYPES, STANDARD, UNITS } = require('../constants');
 
 
 describe('format-converter', () => {
@@ -23,6 +23,21 @@ describe('format-converter', () => {
     expect(formatConverter._getPrefixMultiplicator("K")).to.be.equal(1000);
     expect(formatConverter._getPrefixMultiplicator("M")).to.be.equal(1/1000);
   });
+
+  it('Private API : should _getStandard(typeOfMesurement)', () => {
+    expect(formatConverter._getStandard(TYPES.WEIGHT)).to.be.equal(STANDARD.WEIGHT);
+    expect(formatConverter._getStandard(TYPES.VOLUME)).to.be.equal(STANDARD.VOLUME);
+    expect(formatConverter._getStandard(TYPES.UNITY)).to.be.equal(STANDARD.UNITY);
+    expect(formatConverter._getStandard(TYPES.UNKNOW)).to.be.equal(STANDARD.UNKNOW);
+  });
+
+  it('Private API : should _getValueConversion(unitSymbol)', () => {
+    expect(formatConverter._getValueConversion(UNITS.POUND)).to.be.equal(453.592);
+    expect(formatConverter._getValueConversion(UNITS.OUNCE)).to.be.equal(43/1454);
+    expect(formatConverter._getValueConversion()).to.be.equal(1);
+  });
+
+
 
   it('Public API : should getStandardFormat().quantity', () => {
     let formatObj = {

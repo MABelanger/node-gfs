@@ -6,9 +6,25 @@ const TYPES = {
   UNITY : "unity"
 };
 
-const HEIGHT_UNITS = ['G', 'LB', 'GA'];
-const VOLUME_UNITS = ['L', 'Z'];
-const UNITY_UNITS = ['UN'];
+const GRAM = 'G';
+const POUND = 'LB';
+const GRAM_A = 'GA';
+const LITER = 'L';
+const OUNCE = 'Z';
+const UNITY = 'UN';
+
+const UNITS = {
+  GRAM,
+  POUND,
+  GRAM_A,
+  LITER,
+  OUNCE,
+  UNITY
+}
+
+const HEIGHT_UNITS = [GRAM, POUND, GRAM_A];
+const VOLUME_UNITS = [LITER, OUNCE];
+const UNITY_UNITS = [UNITY];
 
 const STANDARD = {
   WEIGHT : {
@@ -35,4 +51,5 @@ module.exports = {
   HEIGHT_UNITS,
   VOLUME_UNITS,
   UNITY_UNITS,
+  UNITS
 };

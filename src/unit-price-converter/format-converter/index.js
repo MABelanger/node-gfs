@@ -3,7 +3,7 @@
 // http://ukma.org.uk/docs/ukma-style-guide.pdf
 
 const formatSplitter = require('../format-splitter');
-const { TYPES, HEIGHT_UNITS, VOLUME_UNITS, UNITY_UNITS, STANDARD } =
+const { TYPES, HEIGHT_UNITS, VOLUME_UNITS, UNITY_UNITS, STANDARD, UNITS } =
         require('./constants');
 
 /**
@@ -20,6 +20,7 @@ function _getTypeOfMesurement(unitSymbol) {
   } else if(UNITY_UNITS.find(item => { return item === unitSymbol } )){
     return TYPES.UNITY;
   }
+
   return null;
 }
 
@@ -59,11 +60,10 @@ function _getStandard(typeOfMesurement) {
  * @private
  */
 function _getValueConversion(unitSymbol) {
-  if (unitSymbol == 'LB' ){
+  if (unitSymbol == UNITS.POUND ){
     return 453.592;
-  }
 
-  if (unitSymbol == 'Z' ){
+  } else if (unitSymbol == UNITS.OUNCE ){
     return 43/1454;
   }
   return 1;
@@ -96,5 +96,7 @@ function getStandardFormat(formatObj) {
 module.exports = {
   _getTypeOfMesurement,
   _getPrefixMultiplicator,
+  _getStandard,
+  _getValueConversion,
   getStandardFormat
 }

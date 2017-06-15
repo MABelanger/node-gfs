@@ -1,6 +1,6 @@
 'use strict';
 
-function getPrice(data) {
+function _getPrice(data) {
   let myRegexp = /<td align="right">(.*?)<\/td>/g;
   let match = myRegexp.exec(data);
 
@@ -15,7 +15,7 @@ function getPrice(data) {
   return null;
 }
 
-function getPacket(data) {
+function _getPacket(data) {
   let myRegexp = /<span>Paquet([\s\S]*?)<span>(.*?)<\/span>/m;
   let match = myRegexp.exec(data);
 
@@ -27,7 +27,7 @@ function getPacket(data) {
   return null;
 }
 
-function getFormat(data) {
+function _getFormat(data) {
   let myRegexp = /<span>Format([\s\S]*?)<span>(.*?)<\/span>/m;
   let match = myRegexp.exec(data);
 
@@ -43,11 +43,11 @@ function getFormat(data) {
   return null;
 }
 
-function getPacketFormat(data) {
-  return getPacket(data) + "X" + getFormat(data);
+function _getPacketFormat(data) {
+  return _getPacket(data) + "X" + _getFormat(data);
 }
 
-function getProductName(data) {
+function _getProductName(data) {
   let myRegexp = /<div id="ProductMainRight">([\s\S]*?)<div class="ProductNameTitle">(.*?)<\/div>/m;
   let match = myRegexp.exec(data);
 
@@ -63,17 +63,17 @@ function getProductName(data) {
 
 function getParsedData(data) {
   return {
-    productName : getProductName(data),
-    packetFormat : getPacketFormat(data),
-    price: getPrice(data)
+    productName : _getProductName(data),
+    packetFormat : _getPacketFormat(data),
+    price: _getPrice(data)
   };
 }
 
 module.exports = {
-  getPrice,
-  getPacket,
-  getFormat,
-  getPacketFormat,
-  getProductName,
+  _getPrice,
+  _getPacket,
+  _getFormat,
+  _getPacketFormat,
+  _getProductName,
   getParsedData
 };
