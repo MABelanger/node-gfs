@@ -77,9 +77,6 @@ function getStandardFormat(formatObj) {
 
   // multiply by the multiplicator standard ex:. kg need to * by 1000
   let standard = _getStandard(typeOfMesurement);
-
-  console.log('standardQuantity', standardQuantity)
-  console.log('standard.multiplicator', standard.multiplicator)
   standardQuantity = standardQuantity * parseFloat(standard.multiplicator);
 
   return {

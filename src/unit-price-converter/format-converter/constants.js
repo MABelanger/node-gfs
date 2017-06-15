@@ -6,7 +6,7 @@ const TYPES = {
   UNITY : "unity"
 };
 
-const HEIGHT_UNITS = ['G', 'LB'];
+const HEIGHT_UNITS = ['G', 'LB', 'GA'];
 const VOLUME_UNITS = ['L', 'Z'];
 const UNITY_UNITS = ['UN'];
 
