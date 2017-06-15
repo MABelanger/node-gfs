@@ -38,7 +38,7 @@ function _getPrefixAndUnit(mesure) {
 }
 
 function getFormatObj(packetFormat){
-  let values = _splitValue(packetFormat);
+  let values = _splitValue(packetFormat); // ['2', '1', '180KG']
   let mesure = values[2]; // Example:. 180KG
   let prefixAndUnit = _getPrefixAndUnit(mesure); // Example :. KG
 

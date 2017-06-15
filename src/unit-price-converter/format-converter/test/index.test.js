@@ -37,9 +37,7 @@ describe('format-converter', () => {
     expect(formatConverter._getValueConversion()).to.be.equal(1);
   });
 
-
-
-  it('Public API : should getStandardFormat().quantity', () => {
+  it('Public API : should getStandardFormat().quantity and .typeOfMesurement', () => {
     let formatObj = {
       packet: "3",
       format: "2",
@@ -50,19 +48,6 @@ describe('format-converter', () => {
 
     let standardFormat = formatConverter.getStandardFormat(formatObj);
     expect(standardFormat.quantity).to.be.equal(3 * 2 * 50);
-  });
-
-  it('Public API : should getStandardFormat().typeOfMesurement', () => {
-    let formatObj = {
-      packet: "3",
-      format: "2",
-      quantity : "50",
-      prefixSymblol: PREFIX.KILLO,
-      unitSymbol : UNITS.GRAM
-    }
-
-    let standardFormat = formatConverter.getStandardFormat(formatObj);
     expect(standardFormat.typeOfMesurement).to.be.equal(TYPES.WEIGHT);
   });
-
 });
