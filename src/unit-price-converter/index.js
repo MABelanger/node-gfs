@@ -3,15 +3,12 @@
 const formatConverter = require('./format-converter');
 const formatSplitter = require('./format-splitter');
 
-
-
-
 function getStandardPriceFormat(formatString, price) {
   let formatObj = formatSplitter.getFormatObj(formatString);
   let { quantity, standardUnit, typeOfMesurement } = formatConverter.getStandardFormat(formatObj);
 
   if(quantity) {
-    let unitPrice = parseFloat(price / quantity);
+    let unitPrice = parseFloat(price / quantity).toFixed(2);
     return {
       unitPrice,
       typeOfMesurement,

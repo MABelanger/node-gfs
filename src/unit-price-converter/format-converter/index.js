@@ -3,7 +3,8 @@
 // http://ukma.org.uk/docs/ukma-style-guide.pdf
 
 const formatSplitter = require('../format-splitter');
-const { TYPES, HEIGHT_UNITS, VOLUME_UNITS, UNITY_UNITS, STANDARD_SYMBOL_UNITS } = require('./constants');
+const { TYPES, HEIGHT_UNITS, VOLUME_UNITS, UNITY_UNITS, STANDARD_SYMBOL_UNITS } =
+        require('./constants');
 
 /**
  * @private
