@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "node_modules/nodemon/bin/nodemon.js node_modules/babel-cli/bin/babel-node.js --debug --presets es2015 -- src/server.js --debug",
+    "server": "node_modules/nodemon/bin/nodemon.js node_modules/babel-cli/bin/babel-node.js --debug --presets es2015 -- src/server/index.js --debug",
     "test": "mocha ./**/test/*.test.js --compilers js:babel-register",
     "test:watch": "npm t -- -w",
     "eslint:src": "eslint src/",
