@@ -6,7 +6,6 @@ const fs = require('fs');
 const htmlParser = require('../index');
 
 describe('html-parser bagel.html', () => {
-
   let bagelData = null;
 
   before((done) => {
@@ -18,30 +17,29 @@ describe('html-parser bagel.html', () => {
   });
 
   it('should _getPrice()', () => {
-    expect( htmlParser._getPrice(bagelData) ).to.be.equal(21.89);
+    expect(htmlParser._getPrice(bagelData)).to.be.equal(21.89);
   });
 
   it('should _getPacket()', () => {
-    expect( htmlParser._getPacket(bagelData) ).to.be.equal(6);
+    expect(htmlParser._getPacket(bagelData)).to.be.equal(6);
   });
 
   it('should _getFormat()', () => {
-    expect( htmlParser._getFormat(bagelData) ).to.be.equal('6X112G');
+    expect(htmlParser._getFormat(bagelData)).to.be.equal('6X112G');
   });
 
   it('should _getPacketFormat()', () => {
-    expect( htmlParser._getPacketFormat(bagelData) )
+    expect(htmlParser._getPacketFormat(bagelData))
       .to.be.equal(htmlParser._getPacket(bagelData) + 'X' + htmlParser._getFormat(bagelData));
   });
 
   // SURG PAIN À DÉJEUNER (14080)
   it('should _getProductName()', () => {
-    expect( htmlParser._getProductName(bagelData) ).to.be.equal('BAGEL PLEIN SAVEUR TR');
+    expect(htmlParser._getProductName(bagelData)).to.be.equal('BAGEL PLEIN SAVEUR TR');
   });
 });
 
 describe('html-parser poivre.html', () => {
-
   let poivreData = null;
 
   before((done) => {
@@ -53,24 +51,24 @@ describe('html-parser poivre.html', () => {
   });
 
   it('should _getPrice()', () => {
-    expect( htmlParser._getPrice(poivreData) ).to.be.equal(162.57);
+    expect(htmlParser._getPrice(poivreData)).to.be.equal(162.57);
   });
 
   it('should _getPacket()', () => {
-    expect( htmlParser._getPacket(poivreData) ).to.be.equal(6);
+    expect(htmlParser._getPacket(poivreData)).to.be.equal(6);
   });
 
   it('should _getFormat()', () => {
-    expect( htmlParser._getFormat(poivreData) ).to.be.equal('1X750G');
+    expect(htmlParser._getFormat(poivreData)).to.be.equal('1X750G');
   });
 
   it('should _getPacketFormat()', () => {
-    expect( htmlParser._getPacketFormat(poivreData) )
+    expect(htmlParser._getPacketFormat(poivreData))
       .to.be.equal(htmlParser._getPacket(poivreData) + 'X' + htmlParser._getFormat(poivreData));
   });
 
   // SURG PAIN À DÉJEUNER (14080)
   it('should _getProductName()', () => {
-    expect( htmlParser._getProductName(poivreData) ).to.be.equal('SAUCE MEL POIVRE VERT');
+    expect(htmlParser._getProductName(poivreData)).to.be.equal('SAUCE MEL POIVRE VERT');
   });
 });

@@ -11,14 +11,18 @@ function requestData(itemId, sessionId, cb) {
 
   // First request to setup the next request. We don't care about the data.
   // The server setup the id for the next loading page.
-  request(optionsMainPage, function (error, response, body) {
-    // Second request to get the real data
-    request(optionsDetailsPage, function (error, response, body) {
-      cb( htmlParser.getParsedData(body) )
-    });
+  request(optionsMainPage, function(error, response, body) {
+    if (!error) {
+      // Second request to get the real data
+      request(optionsDetailsPage, function(error, response, body) {
+        if (!error) {
+          cb(htmlParser.getParsedData(body));
+        }
+      });
+    }
   });
 }
 
 module.exports = {
   requestData
-}
+};

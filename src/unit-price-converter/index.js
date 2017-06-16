@@ -7,7 +7,7 @@ const formatSplitter = require('./format-splitter');
 const formatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD',
-  minimumFractionDigits: 2,
+  minimumFractionDigits: 2
 });
 
 function getStandardPriceFormat(formatString, price) {
@@ -15,19 +15,19 @@ function getStandardPriceFormat(formatString, price) {
   let { quantity, standardUnit, typeOfMesurement } =
               formatConverter.getStandardFormat(formatObj);
 
-  if( quantity ) {
-    let unitPrice = parseFloat( parseFloat(price) / parseFloat(quantity) );
+  if (quantity) {
+    let unitPrice = parseFloat(parseFloat(price) / parseFloat(quantity));
     let unitPriceFormated = formatter.format(unitPrice).replace('$', '');
 
     return {
       unitPriceFormated,
       typeOfMesurement,
       standardUnit
-    }
+    };
   }
   return null;
 }
 
 module.exports = {
   getStandardPriceFormat
-}
+};

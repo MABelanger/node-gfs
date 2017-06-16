@@ -7,8 +7,8 @@
     "server": "node_modules/nodemon/bin/nodemon.js node_modules/babel-cli/bin/babel-node.js --debug --presets es2015 -- src/server.js --debug",
     "test": "mocha ./**/test/*.test.js --compilers js:babel-register",
     "test:watch": "npm t -- -w",
-    "eslint:src": "eslint --ignore-pattern !**/*.{test,mock}.js src/",
-    "eslint:watch": "esw --color --ignore-pattern !**/*.{test,mock}.js src/ -w",
+    "eslint:src": "eslint src/",
+    "eslint:watch": "esw --color src/ -w",
     "eslint:fix": "eslint --fix src/"
   },
   "author": "Michel-Alexandre Belanger",

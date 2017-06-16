@@ -6,16 +6,14 @@ const fs = require('fs');
 const formatConverter = require('../index');
 const { TYPES, STANDARD, UNITS, PREFIX } = require('../constants');
 
-
 describe('format-converter', () => {
-
   it('should always be true', () => {
     expect(true).to.be.true;
   });
 
   it('Private API : should _getPrefixMultiplicator(prefixSymblol)', () => {
     expect(formatConverter._getPrefixMultiplicator(PREFIX.KILLO)).to.be.equal(1000);
-    expect(formatConverter._getPrefixMultiplicator(PREFIX.MILLI)).to.be.equal(1/1000);
+    expect(formatConverter._getPrefixMultiplicator(PREFIX.MILLI)).to.be.equal(1 / 1000);
   });
 
   it('Private API : should _getTypeOfMesurement(unitSymbol)', () => {
@@ -33,18 +31,18 @@ describe('format-converter', () => {
 
   it('Private API : should _getValueConversion(unitSymbol)', () => {
     expect(formatConverter._getValueConversion(UNITS.POUND)).to.be.equal(453.592);
-    expect(formatConverter._getValueConversion(UNITS.OUNCE)).to.be.equal(43/1454);
+    expect(formatConverter._getValueConversion(UNITS.OUNCE)).to.be.equal(43 / 1454);
     expect(formatConverter._getValueConversion()).to.be.equal(1);
   });
 
   it('Public API : should getStandardFormat().quantity and .typeOfMesurement', () => {
     let formatObj = {
-      packet: "3",
-      format: "2",
-      quantity : "50",
+      packet: '3',
+      format: '2',
+      quantity: '50',
       prefixSymblol: PREFIX.KILLO,
-      unitSymbol : UNITS.GRAM
-    }
+      unitSymbol: UNITS.GRAM
+    };
 
     let standardFormat = formatConverter.getStandardFormat(formatObj);
     expect(standardFormat.quantity).to.be.equal(3 * 2 * 50);

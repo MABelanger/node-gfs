@@ -1,9 +1,9 @@
 'use strict';
 
 const TYPES = {
-  WEIGHT : "weight",
-  VOLUME : "volume",
-  UNITY : "unity"
+  WEIGHT: 'weight',
+  VOLUME: 'volume',
+  UNITY: 'unity'
 };
 
 const GRAM = 'G';
@@ -30,33 +30,33 @@ const UNITS = {
   UNITY
 };
 
-const STANDARD_WEIGHT_UNIT = "kg";
-const STANDARD_VOLUME_UNIT = "l";
-const STANDARD_UNITY_UNIT = "1000 un";
-const STANDARD_UNKNOW_UNIT = "unknow";
+const STANDARD_WEIGHT_UNIT = 'kg';
+const STANDARD_VOLUME_UNIT = 'l';
+const STANDARD_UNITY_UNIT = '1000 un';
+const STANDARD_UNKNOW_UNIT = 'unknow';
 
 const HEIGHT_UNITS = [GRAM, POUND, GRAM_A];
 const VOLUME_UNITS = [LITER, OUNCE];
 const UNITY_UNITS = [UNITY];
 
 const STANDARD = {
-  WEIGHT : {
-    unit : STANDARD_WEIGHT_UNIT,
-    multiplicator : 1/1000
+  WEIGHT: {
+    unit: STANDARD_WEIGHT_UNIT,
+    multiplicator: 1 / 1000
   },
-  VOLUME : {
-    unit : STANDARD_VOLUME_UNIT,
-    multiplicator : 1
+  VOLUME: {
+    unit: STANDARD_VOLUME_UNIT,
+    multiplicator: 1
   },
-  UNITY : {
+  UNITY: {
     unit: STANDARD_UNITY_UNIT,
-    multiplicator : 1/1000
+    multiplicator: 1 / 1000
   },
-  UNKNOW : {
-    unit : STANDARD_UNKNOW_UNIT,
-    multiplicator : 1
+  UNKNOW: {
+    unit: STANDARD_UNKNOW_UNIT,
+    multiplicator: 1
   }
-}
+};
 
 module.exports = {
   TYPES,
