@@ -66,13 +66,13 @@ function getStandardFormat(formatObj) {
   let { packet, format, quantity, prefixSymblol, unitSymbol } = formatObj;
 
   let typeOfMesurement = _getTypeOfMesurement(unitSymbol);
-  let multiplicator = _getPrefixMultiplicator(prefixSymblol);
-  let valueConversion = _getValueConversion(unitSymbol);
+  let prefixMultiplicator = _getPrefixMultiplicator(prefixSymblol);
+  let conversionMultiplicator = _getValueConversion(unitSymbol);
 
   // Get the Total quantity in the right format grams, liters and units
   let standardQuantity = parseInt(packet) * parseInt(format) *
-                          parseFloat(quantity) * parseFloat(valueConversion) *
-                          parseFloat(multiplicator);
+                          parseFloat(quantity) * parseFloat(prefixMultiplicator) *
+                          parseFloat(conversionMultiplicator);
 
   // multiply by the multiplicator standard ex:. kg need to * by 1000
   let standard = _getStandard(typeOfMesurement);

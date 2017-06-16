@@ -2,7 +2,6 @@
 
 import path from 'path';
 
-
 import handleRequest from './handle-request';
 
 const IS_MOCK = true;

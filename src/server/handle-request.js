@@ -1,9 +1,10 @@
 'use strict';
 
 import htmlScraper from '../html-scraper';
+import unitPriceConverter from '../unit-price-converter';
+
 import utils from './utils';
 import mock from './mock.json';
-import unitPriceConverter from '../unit-price-converter';
 
 const IS_MOCK = true;
 
