@@ -1,12 +1,10 @@
 'use strict';
 
-import htmlScraper from '../html-scraper';
+import htmlScraper from '../html-scraper-gfs';
 import unitPriceConverter from '../unit-price-converter';
 
 import utils from './utils';
 import mock from './mock.json';
-
-const IS_MOCK = true;
 
 function _emitFromHmlScraper(id, sessionId, socket) {
   let date = utils.formatDate(new Date());
@@ -53,9 +51,8 @@ function emitToClient(dataClient, socket, isMock) {
       }
     }, i * 1000); // end setTimeout()
   } // end for()
-
 }
 
 module.exports = {
   emitToClient
-}
+};
