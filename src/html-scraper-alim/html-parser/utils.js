@@ -74,8 +74,6 @@ function _getNumber(formatStr) {
 function getFormatedFormat(formatStr) {
   formatStr = formatStr.replace(/\ /g, '');
 
-  console.log('__formatStr', formatStr);
-
   let formatPadded = getFormatPadded(formatStr);
 
   let prefixAndUnit = null;

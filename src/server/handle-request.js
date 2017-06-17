@@ -19,8 +19,14 @@ function _emitFromHmlScraper(id, cookie, socket, supplier) {
     htmlScraper = htmlScraperAlim;
   }
   htmlScraper.requestData(id, cookie, function cb(parsedData) {
+    let { id, price, packetFormat } = parsedData;
+    let { unitPriceFormated, standardUnit } =
+        unitPriceConverter.getStandardPriceFormat(packetFormat, price);
+
     let allData = Object.assign(parsedData, {
       id: id,
+      unitPriceFormated: unitPriceFormated,
+      standardUnit: standardUnit,
       date: date
     });
     socket.emit('testerEvent', allData);

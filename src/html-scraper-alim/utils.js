@@ -13,11 +13,14 @@ function _getSessionCookie(cookie) {
 
 function getOptionsDetailsPage(itemId, request, cookie) {
   let urlItemDetail = BASE_URL_ITEM + itemId;
-
-  let reqCookie = request.cookie(_getSessionCookie(cookie));
   let myJar = request.jar();
 
+  let reqCookie = request.cookie('CFID=25797033');
   myJar.setCookie(reqCookie, urlItemDetail);
+
+  reqCookie = request.cookie('CFTOKEN=71433318');
+  myJar.setCookie(reqCookie, urlItemDetail);
+
   return {
     url: urlItemDetail,
     jar: myJar,
