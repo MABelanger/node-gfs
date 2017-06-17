@@ -12,20 +12,22 @@ const formatter = new Intl.NumberFormat('en-US', {
 
 function getStandardPriceFormat(formatString, price) {
   let formatObj = formatSplitter.getFormatObj(formatString);
+
   let { quantity, standardUnit, typeOfMesurement } =
               formatConverter.getStandardFormat(formatObj);
 
+  let unitPrice = null;
+  let unitPriceFormated = null;
   if (quantity) {
-    let unitPrice = parseFloat(price) / parseFloat(quantity);
-    let unitPriceFormated = formatter.format(unitPrice).replace('$', '');
-
-    return {
-      unitPriceFormated,
-      typeOfMesurement,
-      standardUnit
-    };
+    unitPrice = parseFloat(price) / parseFloat(quantity);
+    unitPriceFormated = formatter.format(unitPrice).replace('$', '');
   }
-  return null;
+
+  return {
+    unitPriceFormated,
+    typeOfMesurement,
+    standardUnit
+  };
 }
 
 module.exports = {

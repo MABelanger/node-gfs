@@ -9,7 +9,7 @@ describe('html-parser alim_37912.html', () => {
   let dataOneLine = null;
 
   before((done) => {
-    fs.readFile(__dirname + '/bacon.html', 'utf8', function(error, data) {
+    fs.readFile(__dirname + '/alim_37912.html', 'utf8', function(error, data) {
       // remove all new lines and tabs
       dataOneLine = data.replace(/(\r\n|\n|\r|\t)/gm, '');
       done();
@@ -26,6 +26,56 @@ describe('html-parser alim_37912.html', () => {
 
   it('should _getProductName()', () => {
     expect(htmlParser._getProductName(dataOneLine)).to.be.equal('Bouch baton mozz pate');
+  });
+
+});
+
+describe('html-parser saucice.html', () => {
+  let dataOneLine = null;
+
+  before((done) => {
+    fs.readFile(__dirname + '/saucice.html', 'utf8', function(error, data) {
+      // remove all new lines and tabs
+      dataOneLine = data.replace(/(\r\n|\n|\r|\t)/gm, '');
+      done();
+    });
+  });
+
+  it('should _getPrice()', () => {
+    expect(htmlParser._getPrice(dataOneLine)).to.be.equal(28.9);
+  });
+
+  it('should _getFormat()', () => {
+    expect(htmlParser._getFormat(dataOneLine)).to.be.equal('1X1X3KG');
+  });
+
+  it('should _getProductName()', () => {
+    expect(htmlParser._getProductName(dataOneLine)).to.be.equal('Saucisse ital douce');
+  });
+
+});
+
+describe('html-parser fritte.html', () => {
+  let dataOneLine = null;
+
+  before((done) => {
+    fs.readFile(__dirname + '/fritte.html', 'utf8', function(error, data) {
+      // remove all new lines and tabs
+      dataOneLine = data.replace(/(\r\n|\n|\r|\t)/gm, '');
+      done();
+    });
+  });
+
+  it('should _getPrice()', () => {
+    expect(htmlParser._getPrice(dataOneLine)).to.be.equal(27.25);
+  });
+
+  it('should _getFormat()', () => {
+    expect(htmlParser._getFormat(dataOneLine)).to.be.equal('1X6X5LB');
+  });
+
+  it('should _getProductName()', () => {
+    expect(htmlParser._getProductName(dataOneLine)).to.be.equal('Frite 3/8 reg taterchef');
   });
 
 });

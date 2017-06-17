@@ -48,7 +48,7 @@ function _getPrefix(formatStr) {
 }
 
 function _getUnit(formatStr) {
-  let myRegexp = /(^[1-9][0-9]*\.?[0-9]*)([K|M])?(LB|G|L|')?/m;
+  let myRegexp = /(^[1-9][0-9]*\.?[0-9]*)([K|M])?(LB|G|L|UN|')?/m;
   let match = myRegexp.exec(formatStr);
 
   if (match && match[3]) {
@@ -61,7 +61,7 @@ function _getUnit(formatStr) {
 
 
 function _getNumber(formatStr) {
-  let myRegexp = /(^[1-9][0-9]*\.?[0-9]*)([K|M])?(LB|G|L|')?/m;
+  let myRegexp = /(^[1-9][0-9]*\.?[0-9]*)([K|M])?(LB|G|L|UN|')?/m;
   let match = myRegexp.exec(formatStr);
 
   if (match && match[1]) {
