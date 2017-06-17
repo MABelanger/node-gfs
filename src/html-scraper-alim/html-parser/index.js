@@ -47,8 +47,6 @@ function getParsedData(data) {
     packetFormat,
     price
   };
-
-
 }
 
 module.exports = {

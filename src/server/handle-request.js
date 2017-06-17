@@ -19,22 +19,19 @@ function _emitFromHmlScraper(id, cookie, socket, supplier) {
     htmlScraper = htmlScraperAlim;
   }
   htmlScraper.requestData(id, cookie, function cb(parsedData) {
-    console.log('parsedData', parsedData)
-    if( parsedData ) {
-      let { price, packetFormat } = parsedData;
-      let { unitPriceFormated, standardUnit } =
-          unitPriceConverter.getStandardPriceFormat(packetFormat, price);
+    let { price, packetFormat } = parsedData;
 
-      let allData = Object.assign(parsedData, {
-        id: id,
-        unitPriceFormated: unitPriceFormated,
-        standardUnit: standardUnit,
-        date: date
-      });
-      socket.emit('testerEvent', allData);
-    }
+    let { unitPriceFormated, standardUnit } =
+        unitPriceConverter.getStandardPriceFormat(packetFormat, price);
 
-    socket.emit('testerEvent', null);
+    let allData = Object.assign(parsedData, {
+      id: id,
+      unitPriceFormated: unitPriceFormated,
+      standardUnit: standardUnit,
+      date: date
+    });
+    socket.emit('testerEvent', allData);
+
   }); // end requestData()
 }
 

@@ -5,6 +5,27 @@ const fs = require('fs');
 
 const htmlParser = require('../index');
 
+describe('html-parser getParsedData()', () => {
+  let dataOneLine = null;
+
+  before((done) => {
+    fs.readFile(__dirname + '/alim_37912.html', 'utf8', function(error, data) {
+      // remove all new lines and tabs
+      dataOneLine = data.replace(/(\r\n|\n|\r|\t)/gm, '');
+      done();
+    });
+  });
+
+  it('should getParsedData() -> All cases', () => {
+    let after = {
+      price : htmlParser._getPrice(dataOneLine),
+      productName : htmlParser._getProductName(dataOneLine),
+      packetFormat : htmlParser._getFormat(dataOneLine)
+    };
+    expect(htmlParser.getParsedData(dataOneLine)).to.be.deep.equal(after);
+  });
+});
+
 describe('html-parser alim_37912.html', () => {
   let dataOneLine = null;
 
@@ -52,7 +73,6 @@ describe('html-parser saucice.html', () => {
   it('should _getProductName()', () => {
     expect(htmlParser._getProductName(dataOneLine)).to.be.equal('Saucisse ital douce');
   });
-
 });
 
 describe('html-parser fritte.html', () => {
@@ -77,41 +97,32 @@ describe('html-parser fritte.html', () => {
   it('should _getProductName()', () => {
     expect(htmlParser._getProductName(dataOneLine)).to.be.equal('Frite 3/8 reg taterchef');
   });
-
 });
 
-/*
-describe('html-parser poivre.html', () => {
-  let poivreData = null;
-
-  before((done) => {
-    fs.readFile(__dirname + '/poivre.html', 'utf8', function(error, data) {
-      // remove all new lines and tabs
-      poivreData = data.replace(/(\r\n|\n|\r|\t)/gm, '');
-      done();
-    });
-  });
+describe('html-parser null', () => {
+  let dataOneLine = null;
 
   it('should _getPrice()', () => {
-    expect(htmlParser._getPrice(poivreData)).to.be.equal(162.57);
-  });
-
-  it('should _getPacket()', () => {
-    expect(htmlParser._getPacket(poivreData)).to.be.equal(6);
+    expect(htmlParser._getPrice(null)).to.be.equal(null);
+    expect(htmlParser._getPrice("garbage")).to.be.equal(null);
   });
 
   it('should _getFormat()', () => {
-    expect(htmlParser._getFormat(poivreData)).to.be.equal('1X750G');
+    expect(htmlParser._getFormat(null)).to.be.equal(null);
+    expect(htmlParser._getFormat("garbage")).to.be.equal(null);
   });
 
-  it('should _getPacketFormat()', () => {
-    expect(htmlParser._getPacketFormat(poivreData))
-      .to.be.equal(htmlParser._getPacket(poivreData) + 'X' + htmlParser._getFormat(poivreData));
-  });
-
-  // SURG PAIN À DÉJEUNER (14080)
   it('should _getProductName()', () => {
-    expect(htmlParser._getProductName(poivreData)).to.be.equal('SAUCE MEL POIVRE VERT');
+    expect(htmlParser._getProductName(null)).to.be.equal(null);
+    expect(htmlParser._getProductName("garbage")).to.be.equal(null);
+  });
+
+  it('should getParsedData()', () => {
+    let after = {
+      price : htmlParser._getPrice(dataOneLine),
+      productName : htmlParser._getProductName(dataOneLine),
+      packetFormat : htmlParser._getFormat(dataOneLine)
+    };
+    expect(htmlParser.getParsedData(dataOneLine)).to.be.deep.equal(after);
   });
 });
-*/

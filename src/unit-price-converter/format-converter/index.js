@@ -63,7 +63,6 @@ function _getValueConversion(unitSymbol) {
 }
 
 function getStandardFormat(formatObj) {
-  console.log('formatObj', formatObj)
   let { packet, format, quantity, prefixSymblol, unitSymbol } = formatObj;
 
   let typeOfMesurement = _getTypeOfMesurement(unitSymbol);
