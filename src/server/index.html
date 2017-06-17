@@ -8,13 +8,23 @@
       document.write(JSON.stringify(data) + "<br/>")
     });
 
+    /*
+    "1229471",
+    "1162738",
+    "1082483",
+
+    sessionId : '0000fj7jOSVQiPzUGkrr-Elv5tY:19tl92die'
+    */
     socket.emit('clientEvent', JSON.stringify({
       ids: [
-        "1229471",
-        "1162738",
-        "1082483"
+        "960297",
+        "36034",
+        "3729"
       ],
-      sessionId : '0000fj7jOSVQiPzUGkrr-Elv5tY:19tl92die'
+      cookie : {
+        cfId : '25797033',
+        cfToken : '71433318'
+      }
     }));
   </script>
   <body></body>

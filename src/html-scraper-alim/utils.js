@@ -3,9 +3,11 @@
 import { HEADERS, BASE_URL_ITEM } from './constants';
 
 function _getSessionCookie(cookie) {
+
   let { cfId, cfToken } = cookie;
   // example : "CFID=25797033; CFTOKEN=71433318"
   let cookieStr = 'CFID=' + cfId + '; ' + 'CFTOKEN=' + cfToken;
+
   return cookieStr;
 }
 

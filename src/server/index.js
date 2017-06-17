@@ -4,7 +4,7 @@ import path from 'path';
 
 import handleRequest from './handle-request';
 
-const IS_MOCK = true;
+const IS_MOCK = false;
 
 let app = require('express')();
 let http = require('http').Server(app);
@@ -20,7 +20,7 @@ io.on('connection', function(socket) {
 
   socket.on('clientEvent', function(jsonData) {
     let dataClient = JSON.parse(jsonData);
-    handleRequest.emitToClient(dataClient, socket, IS_MOCK);
+    handleRequest.emitToClient(dataClient, socket, IS_MOCK, 'ALIM');
   }); // end clientEvent()
 
   socket.on('disconnect', function() {

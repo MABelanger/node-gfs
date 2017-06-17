@@ -84,10 +84,14 @@ function getFormatedFormat(formatStr) {
     formatPaddedSplited = formatPadded.split('X');
     prefixAndUnit = formatPaddedSplited[2];
     let number = _getNumber(prefixAndUnit);
-    let prefix = _getPrefix(prefixAndUnit);
+    let prefix = _getPrefix(prefixAndUnit) || "";
     let unit = _getUnit(prefixAndUnit);
 
-    return formatPaddedSplited[0] + 'X' + formatPaddedSplited[1] + 'X' + number +  prefix + unit;
+    return formatPaddedSplited[0] + 'X' +
+          formatPaddedSplited[1] + 'X' +
+          number +
+          prefix +
+          unit;
   }
 
   return null;

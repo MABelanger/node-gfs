@@ -1,14 +1,24 @@
 'use strict';
 
-import htmlScraper from '../html-scraper-gfs';
+import htmlScraperGfs from '../html-scraper-gfs';
+import htmlScraperAlim from '../html-scraper-alim';
 import unitPriceConverter from '../unit-price-converter';
 
 import utils from './utils';
 import mock from './mock.json';
 
-function _emitFromHmlScraper(id, sessionId, socket) {
+function _emitFromHmlScraper(id, cookie, socket, supplier) {
   let date = utils.formatDate(new Date());
-  htmlScraper.requestData(id, sessionId, function cb(parsedData) {
+
+  let htmlScraper = null;
+
+  if (supplier == 'GFS') {
+    htmlScraper = htmlScraperGfs;
+
+  } else if (supplier == 'ALIM') {
+    htmlScraper = htmlScraperAlim;
+  }
+  htmlScraper.requestData(id, cookie, function cb(parsedData) {
     let allData = Object.assign(parsedData, {
       id: id,
       date: date
@@ -34,8 +44,8 @@ function _emitFromMock(i, socket) {
   socket.emit('testerEvent', allData);
 }
 
-function emitToClient(dataClient, socket, isMock) {
-  let { sessionId, ids } = dataClient;
+function emitToClient(dataClient, socket, isMock, supplier) {
+  let { cookie, ids } = dataClient;
 
   if (!(ids && ids.length > 0)) {
     return null;
@@ -47,7 +57,7 @@ function emitToClient(dataClient, socket, isMock) {
         _emitFromMock(i, socket);
       } else {
         let id = ids[i];
-        _emitFromHmlScraper(id, sessionId, socket);
+        _emitFromHmlScraper(id, cookie, socket, supplier);
       }
     }, i * 1000); // end setTimeout()
   } // end for()

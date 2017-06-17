@@ -13,16 +13,14 @@ function requestData(itemId, cookie, cb) {
   // The server setup the id for the next loading page.
   request(optionsDetailsPage, function(error, response, body) {
     if (!error) {
-      cb(htmlParser.getParsedData(body));
+      let bodyOneLine = body.replace(/(\r\n|\n|\r|\t)/gm, '');
+      let parsedData = htmlParser.getParsedData(bodyOneLine);
+      console.log('parsedData', parsedData)
+      cb(parsedData);
     }
   });
 }
 
-let cookie = {
-  cfId : '25797033',
-  cfToken : '71433318'
+module.exports = {
+  requestData
 };
-
-requestData("37912", cookie, function cb(body){
-
-});
