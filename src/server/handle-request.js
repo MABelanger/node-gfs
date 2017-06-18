@@ -1,7 +1,6 @@
 'use strict';
 
-import htmlScraperGfs from '../html-scraper-gfs';
-import htmlScraperAlim from '../html-scraper-alim';
+import supplier from '../supplier';
 import unitPriceConverter from '../unit-price-converter';
 
 import utils from './utils';
@@ -9,9 +8,9 @@ import mock from './mock.json';
 
 function _getHtmlScraper(supplier) {
   if (supplier === 'GFS') {
-    return htmlScraperGfs;
+    return supplier.gfs.htmlScraper;
   } else if (supplier === 'ALIM') {
-    return htmlScraperAlim;
+    return supplier.alimPlus.htmlScraper;
   }
 }
 
