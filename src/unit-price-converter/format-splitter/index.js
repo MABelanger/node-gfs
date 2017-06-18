@@ -10,7 +10,7 @@ function _splitValue(packetFormat) {
   if(packetFormat){
     return packetFormat.split('X');
   }
-  return ['1', '1', '1'];
+  return ['0', '0', '0'];
 }
 
 /**
