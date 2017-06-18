@@ -3,47 +3,69 @@
   <head><title>Hello world</title></head>
   <script src="/socket.io/socket.io.js"></script>
   <script>
+    var SUPPLIER = 'ALIM';
+
     var socket = io();
-    socket.on('testerEvent', function(data){
-      document.write(JSON.stringify(data) + "<br/>")
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Write title
+      var contentH1 = document.createElement("H1");
+      contentH1.innerHTML =  SUPPLIER;
+      document.body.appendChild(contentH1);
+
+      // Write the json
+      socket.on('testerEvent', function(data){
+        var contentDiv = document.createElement("div");
+        contentDiv.innerHTML = JSON.stringify(data) + "<br/>";
+        document.body.appendChild(contentDiv);
+      });
     });
 
-    /*
-    "1229471",
-    "1162738",
-    "1082483",
 
-    "6693167",
-    "101119",
-    "425",
-    "741",
-    "2172",
-    "3729",
-    "6229",
-    "10661",
-    "11443",
-    "14816",
-    "18701",
-    "30750",
-    "37912",
-    "58888",
-    "65214",
-    "91168",
-    "101050",
-    "101119",
-    "219630",
-    "255927",
-    "404418"
-    sessionId : '0000fj7jOSVQiPzUGkrr-Elv5tY:19tl92die'
-    */
+    var gfsIds = [
+      "1229471",
+      "1162738",
+      "1082483"
+    ];
+
+    var alimIds = [
+      "6693167",
+      "101119",
+      "425",
+      "741",
+      "2172",
+      "3729",
+      "6229",
+      "10661",
+      "11443",
+      "14816",
+      "18701",
+      "30750",
+      "37912",
+      "58888",
+      "65214",
+      "91168",
+      "101050",
+      "101119",
+      "219630",
+      "255927",
+      "404418"
+    ];
+
+
+
+    var ids = [];
+
+    if (SUPPLIER == 'GFS') {
+      ids = gfsIds;
+    } else if (SUPPLIER == 'ALIM') {
+      ids = alimIds;
+    }
+
     socket.emit('clientEvent', JSON.stringify({
-      supplier: 'GFS',
+      supplier: SUPPLIER,
       isMock: false,
-      ids: [
-        "1229471",
-        "1162738",
-        "1082483"
-      ],
+      ids: ids,
       cookie : {
         cfId : '25797033',
         cfToken : '71433318',
