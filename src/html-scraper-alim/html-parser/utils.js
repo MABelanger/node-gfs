@@ -80,12 +80,12 @@ function getFormatedFormat(formatStr) {
 
   let formatPadded = _getFormatPadded(formatStr);
 
-  let prefixAndUnit = null;
-  let formatPaddedSplited = [];
-  if(formatPadded) {
-    formatPaddedSplited = formatPadded.split('X');
-    prefixAndUnit = formatPaddedSplited[2];
+  if (formatPadded) {
+    let formatPaddedSplited = formatPadded.split('X');
+    let prefixAndUnit = formatPaddedSplited[2];
+
     let number = _getNumber(prefixAndUnit);
+    // replace by empty string if no prefix
     let prefix = _getPrefix(prefixAndUnit) || "";
     let unit = _getUnit(prefixAndUnit);
 

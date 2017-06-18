@@ -9,7 +9,7 @@ describe('html-parser getParsedData()', () => {
   let dataOneLine = null;
 
   before((done) => {
-    fs.readFile(__dirname + '/alim_37912.html', 'utf8', function(error, data) {
+    fs.readFile(__dirname + '/mock/alim_37912.html', 'utf8', function(error, data) {
       // remove all new lines and tabs
       dataOneLine = data.replace(/(\r\n|\n|\r|\t)/gm, '');
       done();
@@ -30,7 +30,7 @@ describe('html-parser alim_37912.html', () => {
   let dataOneLine = null;
 
   before((done) => {
-    fs.readFile(__dirname + '/alim_37912.html', 'utf8', function(error, data) {
+    fs.readFile(__dirname + '/mock/alim_37912.html', 'utf8', function(error, data) {
       // remove all new lines and tabs
       dataOneLine = data.replace(/(\r\n|\n|\r|\t)/gm, '');
       done();
@@ -55,7 +55,7 @@ describe('html-parser saucice.html', () => {
   let dataOneLine = null;
 
   before((done) => {
-    fs.readFile(__dirname + '/saucice.html', 'utf8', function(error, data) {
+    fs.readFile(__dirname + '/mock/saucice.html', 'utf8', function(error, data) {
       // remove all new lines and tabs
       dataOneLine = data.replace(/(\r\n|\n|\r|\t)/gm, '');
       done();
@@ -79,7 +79,7 @@ describe('html-parser fritte.html', () => {
   let dataOneLine = null;
 
   before((done) => {
-    fs.readFile(__dirname + '/fritte.html', 'utf8', function(error, data) {
+    fs.readFile(__dirname + '/mock/fritte.html', 'utf8', function(error, data) {
       // remove all new lines and tabs
       dataOneLine = data.replace(/(\r\n|\n|\r|\t)/gm, '');
       done();

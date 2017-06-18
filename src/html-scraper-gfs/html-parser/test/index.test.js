@@ -5,11 +5,32 @@ const fs = require('fs');
 
 const htmlParser = require('../index');
 
+describe('html-parser getParsedData()', () => {
+  let dataOneLine = null;
+
+  before((done) => {
+      fs.readFile(__dirname + '/mock/bagel.html', 'utf8', function(error, data) {
+      // remove all new lines and tabs
+      dataOneLine = data.replace(/(\r\n|\n|\r|\t)/gm, '');
+      done();
+    });
+  });
+
+  it('should getParsedData() -> All cases', () => {
+    let after = {
+      price : htmlParser._getPrice(dataOneLine),
+      productName : htmlParser._getProductName(dataOneLine),
+      packetFormat : htmlParser._getPacketFormat(dataOneLine)
+    };
+    expect(htmlParser.getParsedData(dataOneLine)).to.be.deep.equal(after);
+  });
+});
+
 describe('html-parser bagel.html', () => {
   let bagelData = null;
 
   before((done) => {
-    fs.readFile(__dirname + '/bagel.html', 'utf8', function(error, data) {
+    fs.readFile(__dirname + '/mock/bagel.html', 'utf8', function(error, data) {
       // remove all new lines and tabs
       bagelData = data.replace(/(\r\n|\n|\r|\t)/gm, '');
       done();
@@ -43,7 +64,7 @@ describe('html-parser poivre.html', () => {
   let poivreData = null;
 
   before((done) => {
-    fs.readFile(__dirname + '/poivre.html', 'utf8', function(error, data) {
+    fs.readFile(__dirname + '/mock/poivre.html', 'utf8', function(error, data) {
       // remove all new lines and tabs
       poivreData = data.replace(/(\r\n|\n|\r|\t)/gm, '');
       done();
@@ -70,5 +91,29 @@ describe('html-parser poivre.html', () => {
   // SURG PAIN À DÉJEUNER (14080)
   it('should _getProductName()', () => {
     expect(htmlParser._getProductName(poivreData)).to.be.equal('SAUCE MEL POIVRE VERT');
+  });
+});
+
+describe('html-parser null', () => {
+
+  it('should _getPrice()', () => {
+    expect(htmlParser._getPrice(null)).to.be.equal(null);
+  });
+
+  it('should _getPacket()', () => {
+    expect(htmlParser._getPacket(null)).to.be.equal(null);
+  });
+
+  it('should _getFormat()', () => {
+    expect(htmlParser._getFormat(null)).to.be.equal(null);
+  });
+
+  it('should _getPacketFormat()', () => {
+    expect(htmlParser._getPacketFormat(null))
+      .to.be.equal(null);
+  });
+
+  it('should _getProductName()', () => {
+    expect(htmlParser._getProductName(null)).to.be.equal(null);
   });
 });

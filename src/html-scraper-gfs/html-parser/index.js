@@ -44,7 +44,13 @@ function _getFormat(data) {
 }
 
 function _getPacketFormat(data) {
-  return _getPacket(data) + 'X' + _getFormat(data);
+  let packet = _getPacket(data);
+  let format = _getFormat(data);
+
+  if (packet && format) {
+    return _getPacket(data) + 'X' + _getFormat(data);
+  }
+  return null;
 }
 
 function _getProductName(data) {

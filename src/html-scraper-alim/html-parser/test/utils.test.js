@@ -77,5 +77,4 @@ describe('html-parser/utils', () => {
     expect(utils.getFormatedFormat('')).to.be.equal(null);
     expect(utils.getFormatedFormat()).to.be.equal(null);
   });
-
 });
