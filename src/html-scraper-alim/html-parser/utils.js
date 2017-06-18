@@ -62,8 +62,6 @@ function _getUnit(formatStr) {
   return null;
 }
 
-
-
 function getFormatedPrice(priceStr) {
   // replace comma by dot
   if(priceStr) {
@@ -75,7 +73,10 @@ function getFormatedPrice(priceStr) {
 }
 
 function getFormatedFormat(formatStr) {
-  formatStr = formatStr.replace(/\ /g, '');
+
+  if (formatStr) {
+    formatStr = formatStr.replace(/\ /g, '');
+  }
 
   let formatPadded = _getFormatPadded(formatStr);
 

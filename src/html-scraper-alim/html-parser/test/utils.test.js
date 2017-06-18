@@ -37,10 +37,19 @@ describe('html-parser/utils', () => {
   });
 
   it('should _getUnit()', () => {
-    expect(utils._getUnit('4.5LB')).to.be.equal('LB');
-    expect(utils._getUnit('4KG')).to.be.equal('G');
-    expect(utils._getUnit('4.5L')).to.be.equal('L');
-    expect(utils._getUnit('4.5UN')).to.be.equal('UN');
+    let units = ['LB','G','L','UN','\''];
+
+    units.forEach((unit) =>{
+      // float number + unit
+      expect(utils._getUnit('1.00' + unit)).to.be.equal(unit);
+      // integer number + unit
+      expect(utils._getUnit('1' + unit)).to.be.equal(unit);
+      // only unit
+      expect(utils._getUnit(unit)).to.be.equal(null);
+    });
+
+    // Unknow UNIT ABC
+    expect(utils._getUnit('4.5ABC')).to.be.equal(null);
     expect(utils._getUnit('4.5__JUNK__KG')).to.be.equal(null);
 
     // Null
@@ -56,6 +65,17 @@ describe('html-parser/utils', () => {
     // Null
     expect(utils.getFormatedPrice(null)).to.be.equal(null);
     expect(utils.getFormatedPrice()).to.be.equal(null);
+  });
+
+  it('should getFormatedFormat()', () => {
+    expect(utils.getFormatedFormat('5.50KG')).to.be.equal('1X1X5.50KG');
+    expect(utils.getFormatedFormat('2X5.50KG')).to.be.equal('1X2X5.50KG');
+    expect(utils.getFormatedFormat('3X2X5.50LB')).to.be.equal('3X2X5.50LB');
+
+    // Null
+    expect(utils.getFormatedFormat(null)).to.be.equal(null);
+    expect(utils.getFormatedFormat('')).to.be.equal(null);
+    expect(utils.getFormatedFormat()).to.be.equal(null);
   });
 
 });
