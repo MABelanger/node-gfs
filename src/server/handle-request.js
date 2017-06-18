@@ -32,11 +32,11 @@ function _emitFromHmlScraper(id, cookie, socket, supplier) {
       standardUnit: standardUnit,
       date: date
     });
-    socket.emit('dataJson', allData);
+    socket.emit('dataJson_' + supplier , allData);
   }); // end requestData()
 }
 
-function _emitFromMock(i, socket) {
+function _emitFromMock(i, socket, supplier) {
   let date = utils.formatDate(new Date());
   let parsedData = mock[i];
   let { id, price, packetFormat } = parsedData;
@@ -50,7 +50,7 @@ function _emitFromMock(i, socket) {
     standardUnit: standardUnit,
     date: date
   });
-  socket.emit('dataJson', allData);
+  socket.emit('dataJson_'+ supplier, allData);
 }
 
 function emitToClient(dataClient, socket) {
@@ -63,7 +63,7 @@ function emitToClient(dataClient, socket) {
   for (let i = 0; i < ids.length; i++) {
     setTimeout(function() {
       if (isMock) {
-        _emitFromMock(i, socket);
+        _emitFromMock(i, socket, supplier);
       } else {
         let id = ids[i];
         _emitFromHmlScraper(id, cookie, socket, supplier);

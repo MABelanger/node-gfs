@@ -14,7 +14,7 @@
       document.body.appendChild(contentH1);
 
       // Write the json
-      socket.on('dataJson', function(data){
+      socket.on('dataJson_' + SUPPLIER, function(data){
         var contentDiv = document.createElement("div");
         contentDiv.innerHTML = JSON.stringify(data) + "<br/>";
         document.body.appendChild(contentDiv);
@@ -64,7 +64,7 @@
 
     socket.emit('clientEvent', JSON.stringify({
       supplier: SUPPLIER,
-      isMock: false,
+      isMock: true,
       ids: ids,
       cookie : {
         cfId : '25797033',
