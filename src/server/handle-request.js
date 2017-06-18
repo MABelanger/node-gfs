@@ -52,8 +52,8 @@ function _emitFromMock(i, socket) {
   socket.emit('testerEvent', allData);
 }
 
-function emitToClient(dataClient, socket, isMock, supplier) {
-  let { cookie, ids } = dataClient;
+function emitToClient(dataClient, socket) {
+  let { isMock, supplier, cookie, ids } = dataClient;
 
   if (!(ids && ids.length > 0)) {
     return null;

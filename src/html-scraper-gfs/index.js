@@ -5,9 +5,9 @@ import request from 'request';
 import utils from './utils';
 import htmlParser from './html-parser';
 
-function requestData(itemId, sessionId, cb) {
-  let optionsMainPage = utils.getOptionsMainPage(itemId, request, sessionId);
-  let optionsDetailsPage = utils.getOptionsDetailsPage(request, sessionId);
+function requestData(itemId, cookie, cb) {
+  let optionsMainPage = utils.getOptionsMainPage(itemId, request, cookie);
+  let optionsDetailsPage = utils.getOptionsDetailsPage(request, cookie);
 
   // First request to setup the next request. We don't care about the data.
   // The server setup the id for the next loading page.

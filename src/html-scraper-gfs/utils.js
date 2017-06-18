@@ -2,16 +2,14 @@
 
 import { HEADERS, BASE_URL_ITEM, URL_ITEM_SUMMARY } from './constants';
 
-function _getSessionCookie(sessionId) {
-  // example : 'JSESSIONID=0000B1nOCCiobYRnmVj_Ui8VAxE:19tl92die'
-  return 'JSESSIONID=' + sessionId;
-}
-
-function getOptionsMainPage(itemId, request, sessionId) {
+function getOptionsMainPage(itemId, request, cookie) {
   let urlItemView = BASE_URL_ITEM + itemId;
-  let cookie = request.cookie(_getSessionCookie(sessionId));
+  let { jSessionId } = cookie;
+
+  let reqCookie = request.cookie('JSESSIONID=' + jSessionId);
+
   let myJar = request.jar();
-  myJar.setCookie(cookie, urlItemView);
+  myJar.setCookie(reqCookie, urlItemView);
   return {
     url: urlItemView,
     jar: myJar,
@@ -19,10 +17,13 @@ function getOptionsMainPage(itemId, request, sessionId) {
   };
 }
 
-function getOptionsDetailsPage(request, sessionId) {
-  let cookie = request.cookie(_getSessionCookie(sessionId));
+function getOptionsDetailsPage(request, cookie) {
+  let { jSessionId } = cookie;
+
+  let reqCookie = request.cookie('JSESSIONID=' + jSessionId);
+
   let myJar = request.jar();
-  myJar.setCookie(cookie, URL_ITEM_SUMMARY);
+  myJar.setCookie(reqCookie, URL_ITEM_SUMMARY);
   return {
     url: URL_ITEM_SUMMARY,
     jar: myJar,
