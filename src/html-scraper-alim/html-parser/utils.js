@@ -1,6 +1,6 @@
 'use strict';
 
-function getFormatPadded(formatStr) {
+function _getFormatPadded(formatStr) {
 
   // 12X8X21KG -> 12X8X21KG
   let myRegexp = /(^[1-9][0-9]*\.?[0-9]*)[Xx]([1-9][0-9]*\.?[0-9]*)[Xx]([1-9][0-9]*\.?[0-9]*)(.*)/m;
@@ -10,14 +10,13 @@ function getFormatPadded(formatStr) {
     return match[1] + "X" + match[2] + "X" + match[3] + match[4];
   }
 
-    // 8X21KG -> 1X8X21KG
+  // 8X21KG -> 1X8X21KG
   myRegexp = /(^[1-9][0-9]*\.?[0-9]*)[Xx]([1-9][0-9]*\.?[0-9]*)(.*)/m;
   match = myRegexp.exec(formatStr);
 
   if (match && match[2]) {
     return "1X" + match[1] + "X" + match[2] + match[3];
   }
-
 
   // 21KG -> 1X1X21KG
   myRegexp = /(^[1-9][0-9]*\.?[0-9]*)(.*)/m;
@@ -30,10 +29,15 @@ function getFormatPadded(formatStr) {
   return null;
 }
 
-function getFormatedPrice(priceStr) {
-  // replace comma by dot
-  priceStr = priceStr.replace(',', '.');
-  return parseFloat(priceStr);
+function _getNumber(formatStr) {
+  let myRegexp = /(^[1-9][0-9]*\.?[0-9]*)/m;
+  let match = myRegexp.exec(formatStr);
+
+  if (match && match[1]) {
+    return match[1];
+  }
+
+  return null;
 }
 
 function _getPrefix(formatStr) {
@@ -60,12 +64,11 @@ function _getUnit(formatStr) {
 
 
 
-function _getNumber(formatStr) {
-  let myRegexp = /(^[1-9][0-9]*\.?[0-9]*)([K|M])?(LB|G|L|UN|')?/m;
-  let match = myRegexp.exec(formatStr);
-
-  if (match && match[1]) {
-    return match[1];
+function getFormatedPrice(priceStr) {
+  // replace comma by dot
+  if(priceStr) {
+    priceStr = priceStr.replace(',', '.');
+    return parseFloat(priceStr);
   }
 
   return null;
@@ -74,7 +77,7 @@ function _getNumber(formatStr) {
 function getFormatedFormat(formatStr) {
   formatStr = formatStr.replace(/\ /g, '');
 
-  let formatPadded = getFormatPadded(formatStr);
+  let formatPadded = _getFormatPadded(formatStr);
 
   let prefixAndUnit = null;
   let formatPaddedSplited = [];
@@ -93,10 +96,13 @@ function getFormatedFormat(formatStr) {
   }
 
   return null;
-
 }
 
 module.exports = {
+  _getFormatPadded,
+  _getNumber,
+  _getPrefix,
+  _getUnit,
   getFormatedPrice,
   getFormatedFormat
 };
