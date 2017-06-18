@@ -7,7 +7,7 @@ const prefixAndUnitSplitter = require('./prefix-and-unit-splitter');
  */
 //  "2X1X880G" -> [ '2', '1', '880G' ]
 function _splitValue(packetFormat) {
-  if(packetFormat){
+  if (packetFormat) {
     return packetFormat.split('X');
   }
   return ['0', '0', '0'];

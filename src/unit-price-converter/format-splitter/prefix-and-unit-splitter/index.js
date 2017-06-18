@@ -17,7 +17,7 @@ function getPrefixSymbol(prefixAndUnit) {
 // remove the prefixSymbol from string to get only the symbol (G, UN, L ...)
 function getUnitSymbol(prefixAndUnit) {
   let PrefixSymbol = getPrefixSymbol(prefixAndUnit);
-  if(prefixAndUnit){
+  if (prefixAndUnit) {
     return prefixAndUnit.replace(PrefixSymbol, '');
   }
   return null;

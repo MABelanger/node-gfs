@@ -1,13 +1,12 @@
 'use strict';
 
 function _getFormatPadded(formatStr) {
-
   // 12X8X21KG -> 12X8X21KG
   let myRegexp = /(^[1-9][0-9]*\.?[0-9]*)[Xx]([1-9][0-9]*\.?[0-9]*)[Xx]([1-9][0-9]*\.?[0-9]*)(.*)/m;
   let match = myRegexp.exec(formatStr);
 
   if (match && match[3]) {
-    return match[1] + "X" + match[2] + "X" + match[3] + match[4];
+    return match[1] + 'X' + match[2] + 'X' + match[3] + match[4];
   }
 
   // 8X21KG -> 1X8X21KG
@@ -15,7 +14,7 @@ function _getFormatPadded(formatStr) {
   match = myRegexp.exec(formatStr);
 
   if (match && match[2]) {
-    return "1X" + match[1] + "X" + match[2] + match[3];
+    return '1X' + match[1] + 'X' + match[2] + match[3];
   }
 
   // 21KG -> 1X1X21KG
@@ -23,7 +22,7 @@ function _getFormatPadded(formatStr) {
   match = myRegexp.exec(formatStr);
 
   if (match && match[1]) {
-    return "1X1X" + match[1] + match[2];
+    return '1X1X' + match[1] + match[2];
   }
 
   return null;
@@ -64,7 +63,7 @@ function _getUnit(formatStr) {
 
 function getFormatedPrice(priceStr) {
   // replace comma by dot
-  if(priceStr) {
+  if (priceStr) {
     priceStr = priceStr.replace(',', '.');
     return parseFloat(priceStr);
   }
@@ -73,9 +72,10 @@ function getFormatedPrice(priceStr) {
 }
 
 function getFormatedFormat(formatStr) {
-
   if (formatStr) {
+    /* eslint-disable no-useless-escape */
     formatStr = formatStr.replace(/\ /g, '');
+    /* eslint-enable no-useless-escape */
   }
 
   let formatPadded = _getFormatPadded(formatStr);
@@ -86,7 +86,7 @@ function getFormatedFormat(formatStr) {
 
     let number = _getNumber(prefixAndUnit);
     // replace by empty string if no prefix
-    let prefix = _getPrefix(prefixAndUnit) || "";
+    let prefix = _getPrefix(prefixAndUnit) || '';
     let unit = _getUnit(prefixAndUnit);
 
     return formatPaddedSplited[0] + 'X' +

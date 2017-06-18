@@ -14,7 +14,7 @@
       document.body.appendChild(contentH1);
 
       // Write the json
-      socket.on('testerEvent', function(data){
+      socket.on('dataJson', function(data){
         var contentDiv = document.createElement("div");
         contentDiv.innerHTML = JSON.stringify(data) + "<br/>";
         document.body.appendChild(contentDiv);

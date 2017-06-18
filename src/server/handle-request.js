@@ -7,17 +7,19 @@ import unitPriceConverter from '../unit-price-converter';
 import utils from './utils';
 import mock from './mock.json';
 
+function _getHtmlScraper(supplier) {
+  if (supplier === 'GFS') {
+    return htmlScraperGfs;
+  } else if (supplier === 'ALIM') {
+    return htmlScraperAlim;
+  }
+}
+
 function _emitFromHmlScraper(id, cookie, socket, supplier) {
   let date = utils.formatDate(new Date());
 
-  let htmlScraper = null;
+  let htmlScraper = _getHtmlScraper(supplier);
 
-  if (supplier == 'GFS') {
-    htmlScraper = htmlScraperGfs;
-
-  } else if (supplier == 'ALIM') {
-    htmlScraper = htmlScraperAlim;
-  }
   htmlScraper.requestData(id, cookie, function cb(parsedData) {
     let { price, packetFormat } = parsedData;
 
@@ -30,8 +32,7 @@ function _emitFromHmlScraper(id, cookie, socket, supplier) {
       standardUnit: standardUnit,
       date: date
     });
-    socket.emit('testerEvent', allData);
-
+    socket.emit('dataJson', allData);
   }); // end requestData()
 }
 
@@ -49,7 +50,7 @@ function _emitFromMock(i, socket) {
     standardUnit: standardUnit,
     date: date
   });
-  socket.emit('testerEvent', allData);
+  socket.emit('dataJson', allData);
 }
 
 function emitToClient(dataClient, socket) {

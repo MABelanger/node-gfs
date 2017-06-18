@@ -2,9 +2,10 @@
 
 const utils = require('./utils');
 
-
 function _getPrice(data) {
+  /* eslint-disable no-useless-escape */
   let myRegexp = /([0-9]*,[0-9]*)\ \$/g;
+  /* eslint-enable no-useless-escape */
   let match = myRegexp.exec(data);
 
   if (match && match[1]) {
@@ -15,7 +16,10 @@ function _getPrice(data) {
 }
 
 function _getFormat(data) {
+  /* eslint-disable no-useless-escape */
   let myRegexp = /Format\ :<\/strong>(.*?)\</m;
+  /* eslint-enable no-useless-escape */
+
   let match = myRegexp.exec(data);
 
   if (match && match[1]) {
@@ -24,7 +28,6 @@ function _getFormat(data) {
   }
   return null;
 }
-
 
 function _getProductName(data) {
   let myRegexp = /<div id="divInfoProduit">([\s\S]*?)<h2>(.*?)<\/h2>/m;
