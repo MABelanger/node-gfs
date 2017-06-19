@@ -1,5 +1,9 @@
 'use strict';
 
+/*
+  We need the data-normalizer because alim plus have no standard of package format
+  so we have to parse it and normalize to return a standard format.
+*/
 function _getFormatPadded(formatStr) {
   // 12X8X21KG -> 12X8X21KG
   let myRegexp = /(^[1-9][0-9]*\.?[0-9]*)[Xx]([1-9][0-9]*\.?[0-9]*)[Xx]([1-9][0-9]*\.?[0-9]*)(.*)/m;

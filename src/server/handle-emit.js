@@ -4,8 +4,8 @@ import htmlScraper from '../html-scraper';
 import utils from './utils';
 
 function _emitFromHmlScraper(id, cookie, socket, supplierStr) {
-  let htmlScraper = htmlScraper.getHtmlScraper(supplierStr);
-  let promise = htmlScraper.requestData(id, cookie);
+  let htmlScraperSupplier = htmlScraper.getHtmlScraper(supplierStr);
+  let promise = htmlScraperSupplier.requestData(id, cookie);
 
   promise.then((parsedData) => {
     let combinedData = utils.getCombinedData(id, parsedData);

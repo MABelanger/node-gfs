@@ -1,6 +1,6 @@
 'use strict';
 
-const utils = require('./utils');
+const dataNormalizer = require('./data-normalizer');
 
 function _getPrice(data) {
   /* eslint-disable no-useless-escape */
@@ -10,7 +10,7 @@ function _getPrice(data) {
 
   if (match && match[1]) {
     let priceStr = match[1];
-    return utils.getFormatedPrice(priceStr);
+    return dataNormalizer.getFormatedPrice(priceStr);
   }
   return null;
 }
@@ -24,7 +24,7 @@ function _getFormat(data) {
 
   if (match && match[1]) {
     let formatStr = match[1];
-    return utils.getFormatedFormat(formatStr); // formatStr
+    return dataNormalizer.getFormatedFormat(formatStr); // formatStr
   }
   return null;
 }
