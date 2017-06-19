@@ -2,7 +2,7 @@
 
 import path from 'path';
 
-import handleRequest from './handle-request';
+import handleEmit from './handle-emit';
 
 let app = require('express')();
 let http = require('http').Server(app);
@@ -18,7 +18,7 @@ io.on('connection', function(socket) {
 
   socket.on('clientEvent', function(jsonData) {
     let dataClient = JSON.parse(jsonData);
-    handleRequest.emitToClient(dataClient, socket);
+    handleEmit.emitToClient(dataClient, socket);
   }); // end clientEvent()
 
   socket.on('disconnect', function() {
