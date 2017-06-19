@@ -9,20 +9,20 @@ function _emitFromHmlScraper(id, cookie, socket, supplierStr) {
 
   promise.then((parsedData) => {
     let combinedData = utils.getCombinedData(id, parsedData);
-    socket.emit('dataJson_' + supplierStr , combinedData);
+    socket.emit('dataJson_' + supplierStr, combinedData);
   });
 }
 
 function _emitFromMock(id, socket, supplierStr) {
-  let mock = utils.getMock(supplierStr)
+  let mock = utils.getMock(supplierStr);
 
   // get the parsedData from the mock of the id
-  let parsedData = mock.find((item)=>{
+  let parsedData = mock.find((item) => {
     return item.id === id;
   });
 
   let combinedData = utils.getCombinedData(id, parsedData);
-  socket.emit('dataJson_' + supplierStr , combinedData);
+  socket.emit('dataJson_' + supplierStr, combinedData);
 }
 
 function emitToClient(dataClient, socket) {

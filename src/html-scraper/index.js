@@ -12,4 +12,4 @@ function getHtmlScraper(supplierStr) {
 
 module.exports = {
   getHtmlScraper
-}
+};

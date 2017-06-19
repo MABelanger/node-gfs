@@ -9,7 +9,7 @@ let http = require('http').Server(app);
 let io = require('socket.io')(http);
 
 app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
 // Whenever someone connects this gets executed

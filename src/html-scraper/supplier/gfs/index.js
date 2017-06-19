@@ -5,10 +5,6 @@ import request from 'request';
 import utils from './utils';
 import htmlParser from './html-parser';
 
-
-
-
-
 function requestData(itemId, cookie) {
   let optionsMainPage = utils.getOptionsMainPage(itemId, request, cookie);
   let optionsDetailsPage = utils.getOptionsDetailsPage(request, cookie);
