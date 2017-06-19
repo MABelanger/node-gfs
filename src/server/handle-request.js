@@ -1,55 +1,26 @@
 'use strict';
 
-import supplier from '../supplier';
-import unitPriceConverter from '../unit-price-converter';
-
+import htmlScraper from '../html-scraper';
 import utils from './utils';
-import mock from './mock.json';
 
-function _getHtmlScraper(supplier) {
-  if (supplier === 'GFS') {
-    return supplier.gfs.htmlScraper;
-  } else if (supplier === 'ALIM') {
-    return supplier.alimPlus.htmlScraper;
-  }
-}
+function _emitFromHmlScraper(id, cookie, socket, supplierStr) {
+  let htmlScraper = htmlScraper.getHtmlScraper(supplierStr);
+  let promise = htmlScraper.requestData(id, cookie);
 
-function _emitFromHmlScraper(id, cookie, socket, supplier) {
-  let date = utils.formatDate(new Date());
-
-  let htmlScraper = _getHtmlScraper(supplier);
-
-  htmlScraper.requestData(id, cookie, function cb(parsedData) {
-    let { price, packetFormat } = parsedData;
-
-    let { unitPriceFormated, standardUnit } =
-        unitPriceConverter.getStandardPriceFormat(packetFormat, price);
-
-    let allData = Object.assign(parsedData, {
-      id: id,
-      unitPriceFormated: unitPriceFormated,
-      standardUnit: standardUnit,
-      date: date
-    });
-    socket.emit('dataJson_' + supplier , allData);
-  }); // end requestData()
-}
-
-function _emitFromMock(i, socket, supplier) {
-  let date = utils.formatDate(new Date());
-  let parsedData = mock[i];
-  let { id, price, packetFormat } = parsedData;
-
-  let { unitPriceFormated, standardUnit } =
-      unitPriceConverter.getStandardPriceFormat(packetFormat, price);
-
-  let allData = Object.assign(parsedData, {
-    id: id,
-    unitPriceFormated: unitPriceFormated,
-    standardUnit: standardUnit,
-    date: date
+  promise.then((parsedData) => {
+    let allData = utils.getCombinedData(id, parsedData);
+    socket.emit('dataJson_' + supplierStr , allData);
   });
-  socket.emit('dataJson_'+ supplier, allData);
+}
+
+function _emitFromMock(id, socket, supplierStr) {
+  let mock = utils.getMock(supplierStr)
+  let parsedData = mock.find((item)=>{
+    return item.id === id;
+  });
+
+  let allData = utils.getCombinedData(id, parsedData);
+  socket.emit('dataJson_' + supplierStr , allData);
 }
 
 function emitToClient(dataClient, socket) {
@@ -61,10 +32,10 @@ function emitToClient(dataClient, socket) {
 
   for (let i = 0; i < ids.length; i++) {
     setTimeout(function() {
+      let id = ids[i];
       if (isMock) {
-        _emitFromMock(i, socket, supplier);
+        _emitFromMock(id, socket, supplier);
       } else {
-        let id = ids[i];
         _emitFromHmlScraper(id, cookie, socket, supplier);
       }
     }, i * 1000); // end setTimeout()
