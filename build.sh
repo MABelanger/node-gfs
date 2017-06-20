@@ -5,6 +5,6 @@ git submodule update &&
 cd unit-price-hunter-client &&
 npm i &&
 npm run build &&
-cp -a dist/ ../src/server/ &&
+cp -a dist ../src/server/ &&
 cd ../ &&
 npm run server
