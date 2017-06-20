@@ -22,8 +22,8 @@ npm --prefix ./unit-price-hunter-client/ install &&
 # Build the client
 npm --prefix ./unit-price-hunter-client/ run build &&
 
-# Copy dist file into the server
+# Copy dist client file into the server
 cp -a ./unit-price-hunter-client/dist ./src/server/ &&
 
-# Run the server at http://localhost:3000
+# Run the express server at http://localhost:3000
 npm --prefix ./ run server
