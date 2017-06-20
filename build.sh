@@ -8,8 +8,10 @@ rm -rf ./unit-price-hunter-client/node_modules &&
 rm -rf ./unit-price-hunter-client/dist &&
 rm -rf ./src/server/dist &&
 
-# Update repos
+# Update current repos
 git pull &&
+
+# update submodule repo
 git submodule init &&
 git submodule update &&
 
