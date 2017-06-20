@@ -1,0 +1,3 @@
+[submodule "unit-price-hunter-client"]
+	path = unit-price-hunter-client
+	url = git@github.com:MABelanger/unit-price-hunter-client.git
