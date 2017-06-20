@@ -6,6 +6,9 @@ import path from 'path';
 
 import handleEmit from './handle-emit';
 
+var open = require("open");
+
+
 let app = require('express')();
 let http = require('http').Server(app);
 let io = require('socket.io')(http);
@@ -55,5 +58,6 @@ io.on('connection', function(socket) {
 });
 
 http.listen(3000, function() {
-  console.log('listening on *:3000');
+  console.log('http://localhost:3000');
+  open("http://localhost:3000");
 });
